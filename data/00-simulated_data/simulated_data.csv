@@ -1,152 +1,176 @@
-division,state,party
-Division 1,Victoria,Liberal
-Division 2,New South Wales,Liberal
-Division 3,Tasmania,Liberal
-Division 4,New South Wales,Liberal
-Division 5,Queensland,Liberal
-Division 6,New South Wales,Labor
-Division 7,Victoria,Liberal
-Division 8,Western Australia,Labor
-Division 9,Western Australia,Greens
-Division 10,Queensland,Labor
-Division 11,Queensland,Labor
-Division 12,Northern Territory,Liberal
-Division 13,New South Wales,Labor
-Division 14,Western Australia,Labor
-Division 15,Western Australia,National
-Division 16,Victoria,Liberal
-Division 17,South Australia,Liberal
-Division 18,Victoria,Liberal
-Division 19,Western Australia,Labor
-Division 20,South Australia,Labor
-Division 21,New South Wales,Liberal
-Division 22,Queensland,Greens
-Division 23,New South Wales,Liberal
-Division 24,New South Wales,Liberal
-Division 25,Queensland,Labor
-Division 26,Victoria,National
-Division 27,New South Wales,Liberal
-Division 28,Queensland,Liberal
-Division 29,Tasmania,Liberal
-Division 30,South Australia,Liberal
-Division 31,New South Wales,Liberal
-Division 32,Victoria,Labor
-Division 33,Tasmania,Liberal
-Division 34,New South Wales,Liberal
-Division 35,Western Australia,Labor
-Division 36,New South Wales,Liberal
-Division 37,Tasmania,Greens
-Division 38,Tasmania,Labor
-Division 39,Victoria,Greens
-Division 40,South Australia,Labor
-Division 41,New South Wales,Other
-Division 42,New South Wales,Other
-Division 43,Tasmania,Labor
-Division 44,Tasmania,National
-Division 45,Queensland,Liberal
-Division 46,Australian Capital Territory,Other
-Division 47,Queensland,Labor
-Division 48,Queensland,Other
-Division 49,South Australia,Liberal
-Division 50,Victoria,National
-Division 51,South Australia,Liberal
-Division 52,Victoria,Labor
-Division 53,South Australia,National
-Division 54,Queensland,Liberal
-Division 55,Queensland,Labor
-Division 56,South Australia,Liberal
-Division 57,New South Wales,Other
-Division 58,Northern Territory,Liberal
-Division 59,New South Wales,Labor
-Division 60,Western Australia,Labor
-Division 61,New South Wales,Liberal
-Division 62,South Australia,Liberal
-Division 63,Queensland,Labor
-Division 64,Tasmania,Labor
-Division 65,South Australia,Labor
-Division 66,Victoria,Labor
-Division 67,Queensland,Liberal
-Division 68,Queensland,Liberal
-Division 69,Tasmania,Labor
-Division 70,South Australia,National
-Division 71,Australian Capital Territory,Labor
-Division 72,Western Australia,Labor
-Division 73,Queensland,National
-Division 74,Victoria,Labor
-Division 75,Western Australia,Labor
-Division 76,Tasmania,Labor
-Division 77,Queensland,Liberal
-Division 78,Western Australia,Liberal
-Division 79,Queensland,Labor
-Division 80,Queensland,Liberal
-Division 81,Victoria,Labor
-Division 82,New South Wales,Liberal
-Division 83,Victoria,Liberal
-Division 84,Queensland,National
-Division 85,Western Australia,Liberal
-Division 86,New South Wales,Labor
-Division 87,Queensland,Liberal
-Division 88,New South Wales,Liberal
-Division 89,Tasmania,Liberal
-Division 90,South Australia,Labor
-Division 91,Victoria,Liberal
-Division 92,New South Wales,Labor
-Division 93,Tasmania,Labor
-Division 94,South Australia,Labor
-Division 95,Victoria,Liberal
-Division 96,Victoria,Labor
-Division 97,Western Australia,Liberal
-Division 98,Queensland,Liberal
-Division 99,South Australia,Liberal
-Division 100,New South Wales,Labor
-Division 101,South Australia,Labor
-Division 102,New South Wales,Labor
-Division 103,Victoria,Labor
-Division 104,Victoria,Labor
-Division 105,South Australia,Other
-Division 106,Western Australia,Labor
-Division 107,Tasmania,Liberal
-Division 108,Victoria,Labor
-Division 109,Queensland,Liberal
-Division 110,Victoria,Labor
-Division 111,Australian Capital Territory,Labor
-Division 112,Victoria,Liberal
-Division 113,Victoria,Liberal
-Division 114,Victoria,Liberal
-Division 115,Tasmania,Labor
-Division 116,Victoria,Labor
-Division 117,New South Wales,Labor
-Division 118,Victoria,Labor
-Division 119,Victoria,Greens
-Division 120,Northern Territory,Labor
-Division 121,South Australia,Liberal
-Division 122,New South Wales,Liberal
-Division 123,New South Wales,Labor
-Division 124,New South Wales,Liberal
-Division 125,New South Wales,National
-Division 126,New South Wales,Labor
-Division 127,Queensland,Labor
-Division 128,New South Wales,Other
-Division 129,Queensland,Labor
-Division 130,Australian Capital Territory,Liberal
-Division 131,Tasmania,Greens
-Division 132,New South Wales,National
-Division 133,New South Wales,Labor
-Division 134,Northern Territory,Labor
-Division 135,South Australia,National
-Division 136,Victoria,Labor
-Division 137,Tasmania,National
-Division 138,South Australia,Liberal
-Division 139,New South Wales,Labor
-Division 140,Victoria,Other
-Division 141,Queensland,Greens
-Division 142,Victoria,National
-Division 143,Western Australia,Labor
-Division 144,Victoria,Labor
-Division 145,Queensland,Liberal
-Division 146,Tasmania,Liberal
-Division 147,South Australia,Liberal
-Division 148,Victoria,Labor
-Division 149,New South Wales,National
-Division 150,New South Wales,Labor
-Division 151,Victoria,Liberal
+ID,Name,Type,Lights,Courts,Phone,ClubName,ClubWebsite,ClubInfo,LocationAddress,WinterPlay,Longitude,Latitude
+1,Simulated Tennis Facility 001,Public,No,2,NA,NA,NA,NA,295 Greenwood Avenue,NA,-79.36402481125522,43.656107803716736
+2,Simulated Tennis Facility 002,Public,No,3,NA,NA,NA,NA,220 Valley Road,NA,-79.20805821702743,43.76483921304765
+3,Simulated Tennis Facility 003,Public,No,4,NA,NA,NA,NA,349 Lakeshore Drive,NA,-79.36624299691015,43.733168491771735
+4,Simulated Tennis Facility 004,Public,Yes,3,NA,NA,NA,NA,13 Park Road,NA,-79.50261574795222,43.65003372856395
+5,Simulated Tennis Facility 005,Public,No,5,NA,NA,NA,NA,356 Ravine Avenue,NA,-79.44845555873364,43.71935804199016
+6,Simulated Tennis Facility 006,Public,No,1,NA,NA,NA,NA,230 Ravine Avenue,NA,-79.55096918097955,43.67097331890852
+7,Simulated Tennis Facility 007,Public,Yes,3,NA,NA,NA,NA,728 Lakeshore Drive,NA,-79.28866684810426,43.736672154869645
+8,Simulated Tennis Facility 008,Public,No,2,NA,NA,NA,NA,504 Lakeshore Drive,NA,-79.46794925027183,43.699832525671646
+9,Simulated Tennis Facility 009,Public,No,3,NA,NA,NA,NA,930 Park Road,NA,-79.54185522662499,43.681363650956406
+10,Simulated Tennis Facility 010,Public,No,3,NA,NA,NA,NA,237 Park Road,NA,-79.30699472447685,43.706626993097984
+11,Simulated Tennis Facility 011,Club,Yes,4,416-555-5352,Community Tennis Club 011,https://example.com/tennis-club-11,Community tennis club with membership and public access hours.,178 Valley Road,NA,-79.51947792918509,43.68606271403835
+12,Simulated Tennis Facility 012,Club,Yes,7,416-555-6964,Community Tennis Club 012,https://example.com/tennis-club-12,Community tennis club with membership and public access hours.,731 Greenwood Avenue,Yes,-79.41959311888834,43.63856156419328
+13,Simulated Tennis Facility 013,Public,Yes,4,NA,NA,NA,NA,936 Lakeshore Drive,NA,-79.26968807139511,43.76268461789722
+14,Simulated Tennis Facility 014,Public,Yes,2,NA,NA,NA,NA,931 Valley Road,Yes,-79.5532325300966,43.64446667460646
+15,Simulated Tennis Facility 015,Public,No,3,NA,NA,NA,NA,904 Greenwood Avenue,NA,-79.5877959256717,43.664424315925054
+16,Simulated Tennis Facility 016,Public,No,1,NA,NA,NA,NA,801 Park Road,NA,-79.46195231419244,43.71595707603025
+17,Simulated Tennis Facility 017,Public,No,2,NA,NA,NA,NA,208 Valley Road,NA,-79.47200435952733,43.725735845225486
+18,Simulated Tennis Facility 018,Public,No,2,NA,NA,NA,NA,343 Ravine Avenue,NA,-79.23676883269988,43.7641002245674
+19,Simulated Tennis Facility 019,Public,Yes,2,NA,NA,NA,NA,682 Greenwood Avenue,NA,-79.4197719028647,43.67955465037224
+20,Simulated Tennis Facility 020,Public,Yes,4,NA,NA,NA,NA,121 Greenwood Avenue,NA,-79.56687702632314,43.6520062434518
+21,Simulated Tennis Facility 021,Club,No,3,416-555-1682,Community Tennis Club 021,NA,Community tennis club with membership and public access hours.,867 Lakeshore Drive,NA,-79.38756574461992,43.679501931720786
+22,Simulated Tennis Facility 022,Public,Yes,3,NA,NA,NA,NA,133 Lakeshore Drive,NA,-79.43181387481062,43.701437645686205
+23,Simulated Tennis Facility 023,Public,Yes,2,NA,NA,NA,NA,586 Lakeshore Drive,Yes,-79.4694298044978,43.68101541449032
+24,Simulated Tennis Facility 024,Public,Yes,3,NA,NA,NA,NA,801 Park Road,NA,-79.46087155335628,43.732516746881934
+25,Simulated Tennis Facility 025,Public,No,1,NA,NA,NA,NA,876 Lakeshore Drive,NA,-79.36951485376856,43.66887689902624
+26,Simulated Tennis Facility 026,Public,No,2,NA,NA,NA,NA,148 Park Road,NA,-79.554077598097,43.6848242262801
+27,Simulated Tennis Facility 027,Public,Yes,3,NA,NA,NA,NA,787 Park Road,Yes,-79.23530698105674,43.734823442629924
+28,Simulated Tennis Facility 028,Public,No,3,NA,NA,NA,NA,697 Greenwood Avenue,NA,-79.365123112669,43.72450346684831
+29,Simulated Tennis Facility 029,Public,No,2,NA,NA,NA,NA,6 Park Road,NA,-79.30384713976132,43.71685881174331
+30,Simulated Tennis Facility 030,Club,Yes,5,NA,Community Tennis Club 030,https://example.com/tennis-club-30,NA,306 Lakeshore Drive,NA,-79.41912298545027,43.63496906714933
+31,Simulated Tennis Facility 031,Public,No,3,NA,NA,NA,NA,530 Valley Road,NA,-79.30248247037359,43.7155360983022
+32,Simulated Tennis Facility 032,Public,No,2,NA,NA,NA,NA,409 Valley Road,NA,-79.36236430323665,43.663583731129165
+33,Simulated Tennis Facility 033,Public,Yes,2,NA,NA,NA,NA,798 Ravine Avenue,NA,-79.31496941238511,43.7143939590713
+34,Simulated Tennis Facility 034,Public,No,2,NA,NA,NA,NA,35 Lakeshore Drive,NA,-79.27948424149832,43.73774618829095
+35,Simulated Tennis Facility 035,Public,Yes,1,NA,NA,NA,NA,211 Valley Road,NA,-79.58629316187614,43.673954026191815
+36,Simulated Tennis Facility 036,Public,Yes,1,NA,NA,NA,NA,467 Valley Road,Yes,-79.55125140080641,43.6496468008781
+37,Simulated Tennis Facility 037,Club,Yes,4,416-555-2322,Community Tennis Club 037,https://example.com/tennis-club-37,Community tennis club with membership and public access hours.,13 Valley Road,NA,-79.54504877013149,43.64480993422466
+38,Simulated Tennis Facility 038,Public,No,3,NA,NA,NA,NA,978 Park Road,NA,-79.21837502532317,43.797417403698866
+39,Simulated Tennis Facility 039,Public,Yes,2,NA,NA,NA,NA,514 Park Road,NA,-79.4098883300129,43.714309137530385
+40,Simulated Tennis Facility 040,Public,Yes,3,NA,NA,NA,NA,952 Ravine Avenue,NA,-79.34822626358375,43.71756831885661
+41,Simulated Tennis Facility 041,Public,Yes,5,NA,NA,NA,NA,504 Park Road,NA,-79.35931367189896,43.66546002608276
+42,Simulated Tennis Facility 042,Public,Yes,1,NA,NA,NA,NA,604 Ravine Avenue,NA,-79.5554972052423,43.65251896922865
+43,Simulated Tennis Facility 043,Public,No,1,NA,NA,NA,NA,727 Greenwood Avenue,NA,-79.34697856178562,43.67059157101612
+44,Simulated Tennis Facility 044,Club,Yes,4,416-555-3297,Community Tennis Club 044,https://example.com/tennis-club-44,Community tennis club with membership and public access hours.,396 Valley Road,NA,-79.44400975006353,43.681678604464366
+45,Simulated Tennis Facility 045,Public,No,2,NA,NA,NA,NA,981 Park Road,Yes,-79.52368598039696,43.67134011425599
+46,Simulated Tennis Facility 046,Public,No,2,NA,NA,NA,NA,821 Valley Road,NA,-79.53600908455128,43.649508552819064
+47,Simulated Tennis Facility 047,Club,Yes,5,416-555-6090,Community Tennis Club 047,https://example.com/tennis-club-47,Community tennis club with membership and public access hours.,236 Greenwood Avenue,NA,-79.16296044619102,43.7340787867963
+48,Simulated Tennis Facility 048,Public,No,2,NA,NA,NA,NA,22 Valley Road,NA,-79.25689988727332,43.75255750617686
+49,Simulated Tennis Facility 049,Public,Yes,1,NA,NA,NA,NA,961 Greenwood Avenue,NA,-79.41537283165259,43.71047698138269
+50,Simulated Tennis Facility 050,Public,No,2,NA,NA,NA,NA,722 Lakeshore Drive,NA,-79.22833511835395,43.790736154433446
+51,Simulated Tennis Facility 051,Public,No,1,NA,NA,NA,NA,153 Park Road,NA,-79.43916773952645,43.709416101765896
+52,Simulated Tennis Facility 052,Public,No,1,NA,NA,NA,NA,330 Ravine Avenue,NA,-79.44452928746443,43.70793032544008
+53,Simulated Tennis Facility 053,Public,No,1,NA,NA,NA,NA,174 Greenwood Avenue,NA,-79.35947948960161,43.70885960077996
+54,Simulated Tennis Facility 054,Public,No,2,NA,NA,NA,NA,133 Valley Road,NA,-79.28578464244359,43.7071947538908
+55,Simulated Tennis Facility 055,Club,Yes,5,416-555-0857,Community Tennis Club 055,NA,Community tennis club with membership and public access hours.,672 Ravine Avenue,NA,-79.41909645491295,43.64839835784129
+56,Simulated Tennis Facility 056,Club,Yes,6,416-555-7390,Community Tennis Club 056,NA,NA,732 Lakeshore Drive,NA,-79.49722596908656,43.71881110619072
+57,Simulated Tennis Facility 057,Public,No,2,NA,NA,NA,NA,651 Lakeshore Drive,NA,-79.28206107890634,43.695041202668776
+58,Simulated Tennis Facility 058,Club,Yes,4,416-555-4399,Community Tennis Club 058,NA,NA,37 Lakeshore Drive,NA,-79.40898567094942,43.67870914612425
+59,Simulated Tennis Facility 059,Public,Yes,2,NA,NA,NA,NA,208 Park Road,NA,-79.24739645300617,43.77020058490754
+60,Simulated Tennis Facility 060,Public,No,2,NA,NA,NA,NA,119 Valley Road,NA,-79.29433184073332,43.73144144866525
+61,Simulated Tennis Facility 061,Public,No,2,NA,NA,NA,NA,229 Park Road,NA,-79.54217804530174,43.68504555582808
+62,Simulated Tennis Facility 062,Public,No,3,NA,NA,NA,NA,554 Park Road,NA,-79.42580908383987,43.66316370435501
+63,Simulated Tennis Facility 063,Club,Yes,5,416-555-9384,Community Tennis Club 063,https://example.com/tennis-club-63,Community tennis club with membership and public access hours.,861 Park Road,NA,-79.23845905728082,43.77638797862489
+64,Simulated Tennis Facility 064,Public,No,3,NA,NA,NA,NA,556 Lakeshore Drive,NA,-79.41240913685544,43.645258648500466
+65,Simulated Tennis Facility 065,Public,No,2,NA,NA,NA,NA,915 Park Road,NA,-79.19645253370406,43.78058824885804
+66,Simulated Tennis Facility 066,Public,No,3,NA,NA,NA,NA,916 Ravine Avenue,NA,-79.14875836480847,43.75682299125337
+67,Simulated Tennis Facility 067,Public,No,1,NA,NA,NA,NA,795 Greenwood Avenue,NA,-79.3249750743951,43.70744785263186
+68,Simulated Tennis Facility 068,Public,No,2,NA,NA,NA,NA,141 Greenwood Avenue,NA,-79.4101808196279,43.68528827621297
+69,Simulated Tennis Facility 069,Public,No,2,NA,NA,NA,NA,301 Greenwood Avenue,NA,-79.24725035438753,43.73710555082191
+70,Simulated Tennis Facility 070,Public,No,2,NA,NA,NA,NA,907 Park Road,NA,-79.36687575960053,43.66796858553592
+71,Simulated Tennis Facility 071,Public,No,3,NA,NA,NA,NA,964 Park Road,NA,-79.39427686112174,43.62247390205062
+72,Simulated Tennis Facility 072,Club,Yes,4,416-555-8168,Community Tennis Club 072,https://example.com/tennis-club-72,NA,945 Park Road,NA,-79.33212360401524,43.718569035113156
+73,Simulated Tennis Facility 073,Public,No,2,NA,NA,NA,NA,498 Ravine Avenue,NA,-79.5347823722282,43.66085358146403
+74,Simulated Tennis Facility 074,Club,No,2,416-555-5511,Community Tennis Club 074,https://example.com/tennis-club-74,Community tennis club with membership and public access hours.,317 Park Road,NA,-79.38649183004311,43.67432141382275
+75,Simulated Tennis Facility 075,Public,No,3,NA,NA,NA,NA,576 Valley Road,NA,-79.29738966762929,43.715588425379806
+76,Simulated Tennis Facility 076,Public,No,3,NA,NA,NA,NA,596 Ravine Avenue,NA,-79.24379021900432,43.77151486430924
+77,Simulated Tennis Facility 077,Club,No,1,416-555-1242,Community Tennis Club 077,https://example.com/tennis-club-77,NA,832 Lakeshore Drive,NA,-79.42855345220907,43.68020037573757
+78,Simulated Tennis Facility 078,Public,No,1,NA,NA,NA,NA,16 Ravine Avenue,NA,-79.2099859228514,43.79290938612053
+79,Simulated Tennis Facility 079,Public,Yes,3,NA,NA,NA,NA,222 Lakeshore Drive,NA,-79.43006843977442,43.632359105760244
+80,Simulated Tennis Facility 080,Public,No,1,NA,NA,NA,NA,415 Lakeshore Drive,NA,-79.4300663926376,43.67478002320933
+81,Simulated Tennis Facility 081,Public,Yes,2,NA,NA,NA,NA,893 Valley Road,NA,-79.53724193240464,43.62958397658077
+82,Simulated Tennis Facility 082,Club,Yes,4,416-555-1862,Community Tennis Club 082,https://example.com/tennis-club-82,Community tennis club with membership and public access hours.,474 Park Road,NA,-79.38277285649202,43.692221737644296
+83,Simulated Tennis Facility 083,Public,No,2,NA,NA,NA,NA,718 Ravine Avenue,NA,-79.44151197496929,43.70017138461339
+84,Simulated Tennis Facility 084,Public,No,1,NA,NA,NA,NA,757 Lakeshore Drive,NA,-79.21758616047423,43.74315304841558
+85,Simulated Tennis Facility 085,Club,Yes,6,416-555-9401,Community Tennis Club 085,https://example.com/tennis-club-85,Community tennis club with membership and public access hours.,129 Lakeshore Drive,NA,-79.42422418048484,43.70486469858031
+86,Simulated Tennis Facility 086,Public,Yes,1,NA,NA,NA,NA,152 Greenwood Avenue,NA,-79.15932523398072,43.772279666109384
+87,Simulated Tennis Facility 087,Public,Yes,4,NA,NA,NA,NA,658 Park Road,NA,-79.38764193125023,43.64761300147224
+88,Simulated Tennis Facility 088,Public,No,2,NA,NA,NA,NA,522 Greenwood Avenue,NA,-79.40592162430657,43.67012604132423
+89,Simulated Tennis Facility 089,Club,No,1,416-555-2542,Community Tennis Club 089,https://example.com/tennis-club-89,Community tennis club with membership and public access hours.,288 Lakeshore Drive,NA,-79.1468332872671,43.777249612785845
+90,Simulated Tennis Facility 090,Public,No,3,NA,NA,NA,NA,115 Ravine Avenue,NA,-79.35880764680296,43.73593052869788
+91,Simulated Tennis Facility 091,Public,No,2,NA,NA,NA,NA,510 Greenwood Avenue,NA,-79.49886745577545,43.64318911770124
+92,Simulated Tennis Facility 092,Club,No,4,NA,Community Tennis Club 092,https://example.com/tennis-club-92,Community tennis club with membership and public access hours.,167 Lakeshore Drive,NA,-79.44295670004507,43.6970728541748
+93,Simulated Tennis Facility 093,Public,No,3,NA,NA,NA,NA,527 Park Road,NA,-79.3973169882798,43.64329434729798
+94,Simulated Tennis Facility 094,Public,Yes,1,NA,NA,NA,NA,564 Park Road,NA,-79.22289154425725,43.755096032791194
+95,Simulated Tennis Facility 095,Public,No,1,NA,NA,NA,NA,730 Lakeshore Drive,NA,-79.18522477286137,43.7724789974623
+96,Simulated Tennis Facility 096,Public,No,3,NA,NA,NA,NA,470 Park Road,NA,-79.30203338275611,43.705274115095456
+97,Simulated Tennis Facility 097,Public,No,1,NA,NA,NA,NA,700 Greenwood Avenue,NA,-79.16895672882427,43.78489174556695
+98,Simulated Tennis Facility 098,Club,Yes,5,416-555-8934,Community Tennis Club 098,https://example.com/tennis-club-98,Community tennis club with membership and public access hours.,154 Ravine Avenue,NA,-79.436841934318565,43.69924609927279
+99,Simulated Tennis Facility 099,Club,Yes,6,416-555-7778,Community Tennis Club 099,NA,Community tennis club with membership and public access hours.,769 Greenwood Avenue,NA,-79.18185383162088,43.80399154239661
+100,Simulated Tennis Facility 100,Public,Yes,3,NA,NA,NA,NA,148 Valley Road,NA,-79.3250436396238,43.72501216024872
+101,Simulated Tennis Facility 101,Public,No,1,NA,NA,NA,NA,810 Lakeshore Drive,NA,-79.44664643288314,43.7325797424332
+102,Simulated Tennis Facility 102,Public,Yes,2,NA,NA,NA,NA,121 Valley Road,NA,-79.25083996418486,43.75463829151229
+103,Simulated Tennis Facility 103,Public,Yes,2,NA,NA,NA,NA,502 Ravine Avenue,NA,-79.1731765366104,43.766267126255954
+104,Simulated Tennis Facility 104,Public,No,1,NA,NA,NA,NA,283 Valley Road,NA,-79.18763321636158,43.78600506654126
+105,Simulated Tennis Facility 105,Club,Yes,6,416-555-6473,Community Tennis Club 105,https://example.com/tennis-club-105,Community tennis club with membership and public access hours.,393 Lakeshore Drive,NA,-79.1764342066656,43.789139553577904
+106,Simulated Tennis Facility 106,Public,Yes,2,NA,NA,NA,NA,665 Valley Road,NA,-79.37261665103563,43.707659570453366
+107,Simulated Tennis Facility 107,Public,No,3,NA,NA,NA,NA,148 Park Road,NA,-79.15630356452256,43.806625142023435
+108,Simulated Tennis Facility 108,Public,Yes,1,NA,NA,NA,NA,317 Greenwood Avenue,NA,-79.5388661124115,43.65086643947593
+109,Simulated Tennis Facility 109,Club,Yes,4,416-555-2763,Community Tennis Club 109,https://example.com/tennis-club-109,Community tennis club with membership and public access hours.,818 Lakeshore Drive,NA,-79.42236667375639,43.65009848672758
+110,Simulated Tennis Facility 110,Public,No,2,NA,NA,NA,NA,413 Lakeshore Drive,NA,-79.31958730814759,43.708840073964105
+111,Simulated Tennis Facility 111,Public,No,2,NA,NA,NA,NA,6 Park Road,NA,-79.4334064551505,43.70356943906931
+112,Simulated Tennis Facility 112,Public,Yes,3,NA,NA,NA,NA,149 Ravine Avenue,Yes,-79.5334856704144,43.65674049253924
+113,Simulated Tennis Facility 113,Public,No,1,NA,NA,NA,NA,549 Greenwood Avenue,NA,-79.4108153511942,43.70553724983396
+114,Simulated Tennis Facility 114,Public,Yes,2,NA,NA,NA,NA,745 Valley Road,NA,-79.36250727343206,43.66669482190527
+115,Simulated Tennis Facility 115,Public,No,1,NA,NA,NA,NA,731 Greenwood Avenue,NA,-79.55624320107061,43.698014820317205
+116,Simulated Tennis Facility 116,Public,No,1,NA,NA,NA,NA,939 Lakeshore Drive,NA,-79.21848735449483,43.76301254104502
+117,Simulated Tennis Facility 117,Club,No,3,416-555-1091,Community Tennis Club 117,https://example.com/tennis-club-117,Community tennis club with membership and public access hours.,194 Greenwood Avenue,NA,-79.16477179705603,43.759893965318696
+118,Simulated Tennis Facility 118,Public,No,2,NA,NA,NA,NA,877 Ravine Avenue,NA,-79.3307724975953,43.70618216834181
+119,Simulated Tennis Facility 119,Public,No,2,NA,NA,NA,NA,271 Ravine Avenue,NA,-79.52260119394259,43.67158622115351
+120,Simulated Tennis Facility 120,Club,Yes,2,416-555-5525,Community Tennis Club 120,https://example.com/tennis-club-120,Community tennis club with membership and public access hours.,998 Ravine Avenue,NA,-79.33504613027418,43.669994472976995
+121,Simulated Tennis Facility 121,Public,No,3,NA,NA,NA,NA,119 Valley Road,NA,-79.26234385526952,43.78017346833869
+122,Simulated Tennis Facility 122,Public,No,2,NA,NA,NA,NA,213 Valley Road,NA,-79.15129017279888,43.781702065293416
+123,Simulated Tennis Facility 123,Public,No,2,NA,NA,NA,NA,207 Ravine Avenue,NA,-79.21430333419441,43.782728458348025
+124,Simulated Tennis Facility 124,Public,Yes,4,NA,NA,NA,NA,55 Valley Road,NA,-79.17784913514794,43.804239299541635
+125,Simulated Tennis Facility 125,Club,Yes,4,416-555-6795,Community Tennis Club 125,NA,Community tennis club with membership and public access hours.,923 Park Road,NA,-79.37433996571448,43.66676924258348
+126,Simulated Tennis Facility 126,Club,Yes,4,416-555-3350,Community Tennis Club 126,https://example.com/tennis-club-126,NA,210 Greenwood Avenue,NA,-79.43168111976901,43.66314590260558
+127,Simulated Tennis Facility 127,Public,No,1,NA,NA,NA,NA,869 Ravine Avenue,NA,-79.43750306179841,43.662028864963865
+128,Simulated Tennis Facility 128,Public,Yes,2,NA,NA,NA,NA,131 Ravine Avenue,NA,-79.17054258649802,43.78801609106262
+129,Simulated Tennis Facility 129,Public,No,1,NA,NA,NA,NA,250 Valley Road,NA,-79.38862446030394,43.69357565706755
+130,Simulated Tennis Facility 130,Public,No,3,NA,NA,NA,NA,42 Park Road,NA,-79.19775736731994,43.81816837844028
+131,Simulated Tennis Facility 131,Public,Yes,1,NA,NA,NA,NA,449 Ravine Avenue,NA,-79.42352790902713,43.636295634883226
+132,Simulated Tennis Facility 132,Public,No,1,NA,NA,NA,NA,690 Lakeshore Drive,NA,-79.47610678538983,43.71114169905006
+133,Simulated Tennis Facility 133,Public,No,2,NA,NA,NA,NA,255 Greenwood Avenue,NA,-79.15934315297989,43.78244663017651
+134,Simulated Tennis Facility 134,Public,Yes,1,NA,NA,NA,NA,381 Greenwood Avenue,NA,-79.51655774359112,43.65302461895982
+135,Simulated Tennis Facility 135,Public,Yes,2,NA,NA,NA,NA,197 Ravine Avenue,NA,-79.4504968391615,43.71606664780231
+136,Simulated Tennis Facility 136,Public,Yes,1,NA,NA,NA,NA,353 Valley Road,NA,-79.21359668283911,43.78144557323871
+137,Simulated Tennis Facility 137,Public,No,2,NA,NA,NA,NA,280 Park Road,NA,-79.17134635972734,43.79014202608256
+138,Simulated Tennis Facility 138,Club,No,2,416-555-5883,Community Tennis Club 138,https://example.com/tennis-club-138,Community tennis club with membership and public access hours.,49 Greenwood Avenue,NA,-79.34395636801811,43.71237472241604
+139,Simulated Tennis Facility 139,Public,No,3,NA,NA,NA,NA,355 Valley Road,NA,-79.39359928325403,43.66248740004121
+140,Simulated Tennis Facility 140,Public,No,1,NA,NA,NA,NA,833 Greenwood Avenue,NA,-79.5317544677259,43.64902635770651
+141,Simulated Tennis Facility 141,Club,No,1,416-555-3349,Community Tennis Club 141,NA,Community tennis club with membership and public access hours.,506 Ravine Avenue,NA,-79.34917925442376,43.650161304704696
+142,Simulated Tennis Facility 142,Club,No,3,416-555-9192,Community Tennis Club 142,https://example.com/tennis-club-142,NA,287 Valley Road,NA,-79.39600714122733,43.6451258610065
+143,Simulated Tennis Facility 143,Public,No,1,NA,NA,NA,NA,222 Lakeshore Drive,NA,-79.2978050262053,43.737087823972324
+144,Simulated Tennis Facility 144,Club,Yes,6,416-555-9035,Community Tennis Club 144,NA,Community tennis club with membership and public access hours.,457 Ravine Avenue,NA,-79.30330141692284,43.71960346635923
+145,Simulated Tennis Facility 145,Club,No,3,416-555-1097,Community Tennis Club 145,NA,NA,877 Valley Road,NA,-79.44623016859028,43.689310218976644
+146,Simulated Tennis Facility 146,Club,Yes,3,416-555-3867,Community Tennis Club 146,https://example.com/tennis-club-146,Community tennis club with membership and public access hours.,438 Greenwood Avenue,NA,-79.52668052108132,43.637510325162104
+147,Simulated Tennis Facility 147,Public,No,1,NA,NA,NA,NA,290 Lakeshore Drive,NA,-79.25429542010946,43.76747375928909
+148,Simulated Tennis Facility 148,Club,No,6,416-555-7151,Community Tennis Club 148,https://example.com/tennis-club-148,NA,190 Valley Road,NA,-79.47668167167605,43.68095848387903
+149,Simulated Tennis Facility 149,Public,No,2,NA,NA,NA,NA,968 Ravine Avenue,NA,-79.19742358115849,43.74351178271891
+150,Simulated Tennis Facility 150,Public,Yes,3,NA,NA,NA,NA,106 Valley Road,NA,-79.22532460282318,43.72123000667471
+151,Simulated Tennis Facility 151,Public,No,4,NA,NA,NA,NA,489 Lakeshore Drive,NA,-79.554846780244,43.6519540588835
+152,Simulated Tennis Facility 152,Club,Yes,4,416-555-8286,Community Tennis Club 152,NA,NA,275 Lakeshore Drive,NA,-79.24369862932748,43.797171228623796
+153,Simulated Tennis Facility 153,Public,Yes,2,NA,NA,NA,NA,136 Lakeshore Drive,NA,-79.53038036020374,43.646344943623895
+154,Simulated Tennis Facility 154,Public,No,3,NA,NA,NA,NA,623 Valley Road,NA,-79.257283052489,43.75276164678537
+155,Simulated Tennis Facility 155,Club,Yes,5,NA,Community Tennis Club 155,https://example.com/tennis-club-155,Community tennis club with membership and public access hours.,178 Lakeshore Drive,NA,-79.34609413522075,43.716379739994586
+156,Simulated Tennis Facility 156,Public,No,3,NA,NA,NA,NA,686 Valley Road,NA,-79.54916241055736,43.62241574340924
+157,Simulated Tennis Facility 157,Public,Yes,1,NA,NA,NA,NA,383 Ravine Avenue,NA,-79.24339304306459,43.75084686661405
+158,Simulated Tennis Facility 158,Public,No,1,NA,NA,NA,NA,847 Valley Road,NA,-79.331037391866,43.72959352964563
+159,Simulated Tennis Facility 159,Club,Yes,4,416-555-1994,Community Tennis Club 159,https://example.com/tennis-club-159,Community tennis club with membership and public access hours.,265 Lakeshore Drive,NA,-79.3739746519585,43.65270117612366
+160,Simulated Tennis Facility 160,Public,No,1,NA,NA,NA,NA,608 Valley Road,NA,-79.43090441158353,43.701894733532605
+161,Simulated Tennis Facility 161,Club,Yes,4,416-555-9812,Community Tennis Club 161,NA,NA,675 Park Road,Yes,-79.35883184481106,43.66388746466659
+162,Simulated Tennis Facility 162,Public,Yes,2,NA,NA,NA,NA,667 Ravine Avenue,NA,-79.43208908711519,43.71078033531483
+163,Simulated Tennis Facility 163,Public,No,2,NA,NA,NA,NA,941 Greenwood Avenue,NA,-79.54625883139077,43.65748153959156
+164,Simulated Tennis Facility 164,Club,No,4,NA,Community Tennis Club 164,NA,Community tennis club with membership and public access hours.,933 Lakeshore Drive,NA,-79.32145917345984,43.73450366922701
+165,Simulated Tennis Facility 165,Public,Yes,4,NA,NA,NA,NA,935 Ravine Avenue,NA,-79.57410536266187,43.69199223511165
+166,Simulated Tennis Facility 166,Club,Yes,5,416-555-3477,Community Tennis Club 166,https://example.com/tennis-club-166,Community tennis club with membership and public access hours.,62 Greenwood Avenue,NA,-79.26712017394388,43.741002630009646
+167,Simulated Tennis Facility 167,Public,No,3,NA,NA,NA,NA,805 Lakeshore Drive,NA,-79.23494102697505,43.76433503672548
+168,Simulated Tennis Facility 168,Club,Yes,4,416-555-4750,Community Tennis Club 168,https://example.com/tennis-club-168,Community tennis club with membership and public access hours.,729 Valley Road,NA,-79.42486221678031,43.67925909138148
+169,Simulated Tennis Facility 169,Public,No,3,NA,NA,NA,NA,257 Valley Road,NA,-79.22480067947747,43.81911190838553
+170,Simulated Tennis Facility 170,Public,No,3,NA,NA,NA,NA,777 Park Road,NA,-79.34664244838322,43.65438052081258
+171,Simulated Tennis Facility 171,Public,No,3,NA,NA,NA,NA,779 Ravine Avenue,NA,-79.48226650325557,43.657413480030876
+172,Simulated Tennis Facility 172,Public,No,2,NA,NA,NA,NA,133 Lakeshore Drive,NA,-79.30241147199189,43.7533944930925
+173,Simulated Tennis Facility 173,Public,No,2,NA,NA,NA,NA,170 Lakeshore Drive,NA,-79.47844088156214,43.64516105225331
+174,Simulated Tennis Facility 174,Public,No,4,NA,NA,NA,NA,294 Ravine Avenue,NA,-79.2536940481084,43.79823869511941
+175,Simulated Tennis Facility 175,Public,Yes,1,NA,NA,NA,NA,414 Park Road,NA,-79.5535450255463,43.64737149269869
