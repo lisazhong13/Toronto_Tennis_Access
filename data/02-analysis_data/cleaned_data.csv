@@ -1,0 +1,174 @@
+record_id,location_id,name,location_address,type,lights,courts,winter_play,club_name,club_website,longitude,latitude
+1,2341,Agincourt Park,27 Glen Watford Dr,Club,Yes,4,Not indicated,Agincourt Tennis Club,http://www.agincourttennisclub.ca,-79.2749181798,43.7882598434
+2,1044,Alamosa Park,111 Alamosa Dr,Club,No,3,Not indicated,Bridlebrook Tennis Club,http://www.nyta.org,-79.3695581505,43.7810883366
+3,923,Albion Gardens Park,41 Deanlea Crt,Public,Yes,3,Not indicated,NA,NA,-79.5589172181,43.7396441768
+4,484,Amesbury Park,151 Culford Rd,Public,No,2,Yes,NA,NA,-79.4834224962,43.7061864958
+5,491,Ancaster Park,43 Ancaster Rd,Public,No,3,Not indicated,NA,NA,-79.4655052281,43.7334252351
+6,582,Angela James Arena & Tennis Courts,165 Grenoble Dr,Public,Yes,4,Not indicated,NA,NA,-79.3276349852,43.713147965
+7,42,Antibes Community Centre,140 Antibes Dr,Public,No,1,Yes,NA,NA,-79.4469957603,43.7811383787
+8,2113,Banbury Park,120 Banbury Rd,Club,Yes,4,Not indicated,Banbury Tennis Club,http://www.banburytennisclub.net,-79.3698734894,43.7427740036
+9,513,Baycrest Park,160 Neptune Dr,Public,Yes,2,Yes,NA,NA,-79.4453131544,43.7271773569
+10,517,Bayview Village Park,2945 Bayview Ave,Public,No,3,Not indicated,NA,NA,-79.3872627373,43.7730254747
+11,219,Beaches Park,2075 Queen St E,Club,Yes,10,Not indicated,Kew Gardens Tennis Club,http://www.kewgardenstennis.ca,-79.2985090973,43.6661298729
+12,826,Beaumonde Heights Park,17 A Waltham Dr,Public,No,3,Not indicated,NA,NA,-79.5744937229,43.740813307
+13,518,Bellbury Park,55 Van Horne Ave.,Club,Yes,5,Not indicated,Bellbury Tennis Club,http://www.bellburytennisclub.com,-79.3613025515,43.7836678733
+14,1025,Bennington Heights Park,465 Heath St E,Club,Yes,2,Not indicated,Bennington Heights Tennis Club,http://www.benningtonheightstennis.org,-79.3695658694,43.6950046581
+15,521,Bestview Park,115 Bestview Dr,Public,Yes,3,Yes,NA,NA,-79.383611575,43.8025870812
+16,827,Birch Park,75 Arcadian Cir,Public,Yes,2,Yes,NA,NA,-79.527418583,43.5916807547
+17,2795,Bloordale Park South,230 Renforth Dr,Public,No,2,Not indicated,NA,NA,-79.5702503041,43.6367217868
+18,465,Bond Park,120 Bond Ave,Club,Yes,6,Not indicated,"Nyta Winter Tennis Club,The Don Mills Tennis Club","http://www.nywintertennisclub.com,http://www.donmillstennisclub.com",-79.3512499027,43.7464153718
+19,560,Botany Hill Park,277 Orton Park Rd,Club,Yes,4,Not indicated,Botany Hill Park,NA,-79.2115040427,43.7781008052
+20,578,Bridlewood Park,445 Huntingwood Dr,Club,Yes,3,Not indicated,Bridlewood Tennis Club,http://www.bridlewoodtennis.ca,-79.3162401527,43.7829182599
+21,215,Broadlands Park,19 Castlegrove Blvd,Club,Yes,4,Not indicated,O'Connor Hills Tennis Club,http://www.oconnorhillstennis.com,-79.321292499,43.7459134839
+22,813,Buttonwood Park,30 Mulham Pl,Public,Yes,3,Not indicated,NA,NA,-79.5208937116,43.6820428693
+23,16,Cassandra Park,230 Cassandra Blvd,Club,Yes,4,Not indicated,Parkway Valley Tennis Club,http://www.pvtc.ca,-79.3183752092,43.7547695052
+24,629,Cedarvale Park,443 Arlington Ave,Public,Yes,4,Not indicated,NA,NA,-79.4293463982,43.6920429866
+25,632,Chalkfarm Park,2230 Jane St,Public,No,2,Yes,NA,NA,-79.5153049996,43.7251242398
+26,2200,Champlain Parkette,50 Champlain Blvd.,Public,No,2,Not indicated,NA,NA,-79.4442690567,43.7321364042
+27,540,Charlottetown Park,65 Charlottetown Blvd,Club,Yes,3,Not indicated,Charlottetown Tennis Club,http://www.charlottetowntennis.com,-79.1402378204,43.7816672717
+28,2307,Clairlea Park,45 Fairfax Cres,Public,No,2,Not indicated,NA,NA,-79.2876779339,43.7142966616
+29,493,Cliffwood Park,280 Cliffwood Rd,Public,No,3,Not indicated,NA,NA,-79.3550893956,43.8084161039
+30,935,Cloverdale Park,85 Shaver Ave S,Public,Yes,3,Yes,NA,NA,-79.5445523618,43.6338484595
+31,494,Clydesdale Park,116 Clydesdale Dr,Club,Yes,4,Not indicated,Pleasantview Tennis Club,http://www.pleasantviewtennis.com,-79.3294248222,43.7832230865
+32,220,Coleman Park,19 Coleman Ave,Public,No,2,Not indicated,NA,NA,-79.2998132901,43.6893991992
+33,2262,Confederation Park,250 Dolly Varden Blvd,Club,Yes,3,Not indicated,Centennial Tennis Club,NA,-79.2361470713,43.7739195626
+34,2568,Cosburn Park,115 Roosevelt Rd,Club,Yes,5,Not indicated,NA,NA,-79.3302786169,43.6929471282
+35,496,Cresthaven Park,37 Cresthaven Dr,Club,Yes,4,Not indicated,Hillcrest Tennis Club,http://www.hillcresttennisclub.ca,-79.3632595734,43.7989881401
+36,941,Cummer Park,823 Cummer Ave,Public,Yes,4,Yes,NA,NA,-79.3718071461,43.7996349111
+37,2642,Dennis Flynn Park,370 The West Mall,Public,Yes,3,Not indicated,NA,NA,-79.5660873359,43.6407105505
+38,86,Dovercourt Park,155 Bartlett Ave,Public,No,2,Yes,NA,NA,-79.4335347104,43.6652150466
+39,501,Dunlace Park,28 Dunlace Dr,Club,Yes,3,Not indicated,Dunlace Tennis Club,http://www.dunlacetennis.com,-79.3684971127,43.7627551751
+40,514,Earlscourt Park,1200 Lansdowne Ave,Public,Yes,1,Not indicated,NA,NA,-79.4515037405,43.6736233981
+41,948,East Mall Park,355 The East Mall,Public,Yes,3,Yes,NA,NA,-79.557311762,43.6424081745
+42,9,Eglinton Flats,101 Emmett Ave,Public,Yes,13,Not indicated,NA,NA,-79.4993864321,43.6849623766
+43,117,Eglinton Park,200 Eglinton Ave W,Public,Yes,2,Not indicated,NA,NA,-79.4053288336,43.707455346
+44,490,Elie Wiesel Park,30 Palm Dr,Public,Yes,3,Yes,NA,NA,-79.4380929802,43.7457158533
+45,594,Elizabeth Simcoe Park,180 Sylvan Ave,Club,Yes,4,Not indicated,Guildwood Tennis Club,http://www.guildwoodtennis.com,-79.2047485273,43.7394428294
+46,127,Fairmount Park,1725 Gerrard St E,Public,Yes,4,Yes,NA,NA,-79.3157246806,43.6758927912
+47,312,Fenside Park,30 Slidell Cres,Public,Yes,4,Yes,NA,NA,-79.3272223147,43.7648962727
+48,572,Firgrove Park,254 Firgrove Cres,Public,No,3,Yes,NA,NA,-79.5215981399,43.7506299125
+49,963,Flagstaff Park,42 Mercury Rd,Public,Yes,2,Not indicated,NA,NA,-79.5906395357,43.7211741632
+50,593,Fountainhead Park,445 Sentinel Rd,Club,Yes,3,Not indicated,Fountainhead Community Tennis Club,http://www.nyta.org/fountainhead_new.html,-79.4989775676,43.7619604841
+51,843,Gihon Spring Park,75 Gihon Spring Dr,Public,Yes,2,Yes,NA,NA,-79.5946310982,43.7545277654
+52,915,Glen Park,44 A Eastglen Cres,Public,Yes,2,Not indicated,NA,NA,-79.5528803231,43.6508232808
+53,640,Glendora Park,201 Glendora Ave,Public,Yes,2,Yes,NA,NA,-79.3999245342,43.7615281708
+54,644,Goulding Park,80 Patricia Ave,Public,No,3,Yes,NA,NA,-79.4223942054,43.7908731496
+55,645,Gracedale Park,176 Gracedale Blvd,Public,No,3,Yes,NA,NA,-79.5621766567,43.751942337
+56,648,Grandravine Park,23 Grandravine Dr,Public,No,3,Not indicated,NA,NA,-79.4913156605,43.7519255923
+57,649,Graydon Hall Park,215 Graydon Hall Dr,Public,Yes,3,Not indicated,NA,NA,-79.3420432259,43.7629563033
+58,651,Gwendolen Park,3 Gwendolen Cres,Club,Yes,3,Not indicated,Gwendolen Tennis Club,http://www.gwendolentennis.com,-79.4199866692,43.7513187144
+59,651,Gwendolen Park,3 Gwendolen Cres,Public,Yes,1,Not indicated,NA,NA,-79.4199866692,43.7513187144
+60,654,Havenbrook Park,15 Havenbrook Blvd.,Club,Yes,4,Not indicated,Henry Farm Tennis Club,http://www.henryfarmtennisclub.ca,-79.356629149,43.7677120823
+61,2365,Hawksbury Park,1 A Hawksbury Dr,Club,Yes,6,Not indicated,Bayview Village Tennis Club,http://www.bayviewvillagetennis.com,-79.3830617488,43.7708575539
+62,659,Hendon Park,50 Hendon Ave,Public,Yes,4,Not indicated,NA,NA,-79.4207514299,43.7814751015
+63,2025,Heron Park,292 Manse Rd,Club,Yes,5,Not indicated,Heron Park Tennis Club,http://www.heronparktennis.com,-79.1772993978,43.7692842438
+64,77,High Park,1873 Bloor St W,Public,Yes,7,Yes,NA,NA,-79.4628353718,43.6468021242
+65,77,High Park,1873 Bloor St W,Club,Yes,7,Yes,Howard Park Tennis Club,http://www.howardparktennis.com,-79.4628353718,43.6468021242
+66,79,Hillcrest Park,950 Davenport Rd,Club,Yes,4,Yes,Wychwood Tennis Club,http://www.wychwoodtennis.ca,-79.4245259326,43.6759841933
+67,424,Howard Talbot Park,635 Eglinton Ave E,Public,No,2,Not indicated,NA,NA,-79.3737533705,43.7106035003
+68,663,Hullmar Park,97 Hullmar Dr,Public,Yes,3,Yes,NA,NA,-79.525418559,43.7649386273
+69,1012,Humber Valley Park,54 Anglesey Blvd,Public,Yes,4,Not indicated,NA,NA,-79.5251424045,43.6649968467
+70,936,Indian Line Park,655 Humberwood Blvd,Public,Yes,2,Not indicated,NA,NA,-79.6224617942,43.7249686499
+71,686,Iroquois Park,295 Chartland Blvd S,Club,No,3,Not indicated,Iroquois Tennis Club,http://www.iroquoistennisclub.ca,-79.2673200765,43.803747715
+72,665,Irving W. Chapley Park,205 Wilmington Ave,Public,Yes,2,Yes,NA,NA,-79.4552215133,43.7617768339
+73,875,Jeff Healey Park,1 Delroy Dr,Public,Yes,2,Yes,NA,NA,-79.4949226173,43.6302406958
+74,155,Jimmie Simpson Park,870 Queen St E,Public,No,2,Yes,NA,NA,-79.344742415,43.6611735016
+75,67,Jonathan Ashbridge Park,1515 Queen St E,Public,No,2,Yes,NA,NA,-79.3199305741,43.6646987507
+76,78,June Rowlands Park,220 Davisville Ave,Club,Yes,6,Not indicated,Davisville Tennis Club,http://www.davisvilletennisclub.com,-79.3885304569,43.7006938955
+77,959,Kingsview Park,46 Kingsview Blvd,Public,No,2,Not indicated,NA,NA,-79.5543427124,43.6991667321
+78,672,Kirkwood Park,25 Kirkwood Rd.,Public,Yes,4,Yes,NA,NA,-79.3616754511,43.7556139518
+79,699,L'Amoreaux Tennis Centre,300 Silver Springs Blvd,Club,Yes,5,Not indicated,Scarborough Winter Tennis Club,http://www.swtc.ca,-79.3050267039999,43.805449053
+80,1029,Laburnham Park,60 Laburnham Ave,Public,Yes,2,Yes,NA,NA,-79.5280276883,43.6001318064
+81,112,Lakeshore Boulevard Parklands,1389 Lake Shore Blvd W,Public,No,4,Yes,NA,NA,-79.4426021971,43.6348233595
+82,847,Lambton - Kingsway Park,37 Marquis Ave,Public,No,2,Not indicated,NA,NA,-79.5078062917,43.6575825508
+83,674,Lanyard Park,138 Lanyard Rd.,Public,No,3,Yes,NA,NA,-79.5486740564,43.7475157958
+84,119,Lawrence Park Ravine,51 Alexander Muir Rd.,Club,Yes,3,Not indicated,Lawrence Park Tennis Club,http://www.lawrenceparktennisclub.ca,-79.3999718915,43.7222056878
+85,425,Leaside Park,5 Leaside Park Dr,Club,Yes,6,Not indicated,Thorncliffe Park Tennis Club,http://www.tptc.ca,-79.35009806,43.7021962957
+86,681,Lillian Park,227 Otonabee Ave,Club,Yes,3,Not indicated,Newtonbrook Tennis Club,http://www.newtonbrooktennis.com,-79.4079395846,43.7976883865
+87,922,Lora Hill Park,36 Fernalroy Blvd,Club,Yes,2,Yes,NA,NA,-79.5148294637,43.6383335775
+88,138,Lytton Park,200 Lytton Blvd,Club,Yes,3,Not indicated,Lytton Park,http://www.lyttonparktennis.com,-79.4108232766,43.7149211094
+89,708,Major Abbas Ali Park,180 Mclevin Ave,Club,Yes,3,Not indicated,Major Abbas Ali Park,NA,-79.2306931574,43.8048478217
+90,2593,Malvern Park,36 Sewells Rd,Public,Yes,3,Yes,NA,NA,-79.2171753204,43.8091940924
+91,920,Manchester Park,75 Manchester St,Public,Yes,3,Yes,NA,NA,-79.4913000364,43.619935502
+92,688,Maple Leaf Park,320 Culford Rd,Public,Yes,3,Yes,NA,NA,-79.4934534865,43.7158024716
+93,849,Martingrove Gardens Park,31 Lavington Dr,Public,Yes,2,Not indicated,NA,NA,-79.5633368359,43.6891656087
+94,2016,Maryland Park,19 Maryland Blvd,Club,Yes,4,Yes,Dentonia Park Tennis Club,https://www.dentoniatennis.com,-79.295201344,43.6918451978
+95,704,Maryvale Park,5 Trestleside Grv,Club,Yes,3,Yes,Maryvale Tennis Club,http://www.maryvaletennis.blogspot.ca,-79.3065284999,43.7530814449
+96,791,McDairmid Woods Park,51 Rubic Cres,Public,Yes,3,Yes,NA,NA,-79.2676081455,43.7798555618
+97,2036,McGregor Park,2231 Lawrence Ave E,Public,No,2,Yes,NA,NA,-79.2805594627,43.7473020114
+98,689,Mcnicoll Park,215 Mcnicoll Ave,Public,Yes,3,Not indicated,NA,NA,-79.3532864223,43.7986097916
+99,505,Michael Mostyn Balmoral Park,170 Faywood Blvd,Public,Yes,3,Not indicated,NA,NA,-79.4498858035,43.7448633255
+100,2486,Mill Valley Park,412 Mill Rd,Public,No,2,Not indicated,NA,NA,-79.5878181642,43.6418045413
+101,853,Millwood Park,4370 Bloor St W,Public,Yes,3,Not indicated,NA,NA,-79.5784370187,43.6317644586
+102,854,Mimico Memorial Park,75 Hillside Ave,Club,Yes,3,Not indicated,Mimico Tennis Club,http://www.mimicotennisclub.org,-79.4936683215,43.6098135096
+103,695,Moore Park - North York,110 Cactus Ave,Public,No,3,Not indicated,NA,NA,-79.4353438261,43.7915790218
+104,168,Moorevale Park,175 Moore Ave,Club,Yes,5,Not indicated,Moore Park Tennis Club,http://www.mooretennis.com,-79.3822524663,43.6935039722
+105,177,Moss Park,150 Sherbourne St,Public,Yes,1,Not indicated,NA,NA,-79.3710758316,43.6550677781
+106,726,North Bendale Park,40 Erinlea Cres,Club,Yes,3,Not indicated,North Bendale Tennis Club,http://www.northbendaletennisclub.org,-79.2447949901,43.7697082605
+107,700,North Park,587 Rustic Rd,Public,No,2,Not indicated,NA,NA,-79.4739613038,43.7164073429
+108,228,Norwood Park,16 Norwood Rd,Public,No,5,Yes,NA,NA,-79.3037543007,43.6823093419
+109,1884,Old Mill Site Park,5 Catherine St,Club,Yes,4,Not indicated,York Old Mill Tennis Club,http://www.oldmilltennis.com,-79.4902386929,43.6508546958
+110,937,Oriole Park - North York,2955 Don Mills Rd,Club,Yes,4,Not indicated,Oriole Park - North York,NA,-79.3510068663,43.781490886
+111,245,Oriole Park - Toronto,201 Oriole Pkwy,Public,No,2,Yes,NA,NA,-79.400237963,43.6972457332
+112,857,Ourland Park,18 Ourland Ave,Public,Yes,2,Yes,NA,NA,-79.5086951021,43.6155516982
+113,858,Park Lawn Park,330 Park Lawn Rd,Public,Yes,4,Not indicated,NA,NA,-79.4955210501,43.6391576953
+114,723,Pelmo Park,171 Pellatt Ave,Public,Yes,3,Yes,NA,NA,-79.5176161181,43.7133754964
+115,859,Pine Point Park,4 Conan Rd,Club,Yes,4,Yes,Pine Point Tennis Club,http://www.pinepointtennis.com,-79.5441307178,43.7161585765
+116,859,Pine Point Park,4 Conan Rd,Public,Yes,2,Yes,NA,NA,-79.5441307178,43.7161585765
+117,733,Prairie Drive Park,101 Pharmacy Ave,Public,Yes,3,Not indicated,NA,NA,-79.2841183812,43.6971138504
+118,924,Prince of Wales Park,1 Third St,Public,Yes,4,Not indicated,NA,NA,-79.4987828571,43.5988411312
+119,951,Princess Anne Park,25 A Princess Margaret Blvd,Public,No,2,Not indicated,NA,NA,-79.5397461835,43.6732653522
+120,861,Queensway Park,8 Avon Park Dr,Public,No,2,Not indicated,NA,NA,-79.5064037093,43.6272622573
+121,167,Ramsden Park,1020 Yonge St,Public,No,12,Yes,NA,NA,-79.3930150445,43.6764157172
+122,181,Rennie Park,1 Rennie Terr,Club,Yes,4,Not indicated,The Swansea Tennis Club,http://www.swanseatennis.com,-79.4722488073,43.6425865388
+123,343,Riverdale Park East,550 Broadview Ave,Public,No,7,Yes,NA,NA,-79.3557408692,43.6700504666
+124,742,Rockford Park,70 Rockford Rd,Public,No,2,Not indicated,NA,NA,-79.4539759017,43.786447041
+125,210,Rosedale Park,20 Scholfield Ave,Club,No,8,Not indicated,The Rosedale Tennis Club,http://www.rosedaletennis.com,-79.3789306778,43.6827794649
+126,987,Rosethorn Park,26 Remington Dr,Club,Yes,3,Not indicated,The Rosethorn Tennis Club,https://www.rosethorntennisclub.com/,-79.5391261116,43.6584426506
+127,867,Rotary Peace Park,25 Eleventh St,Public,No,2,Yes,NA,NA,-79.5068692837,43.5947627637
+128,878,Royal Crest Park,50 Cabernet Cir,Public,Yes,3,Not indicated,NA,NA,-79.6052923472,43.7527913227
+129,347,Roywood Park,2 Roywood Dr,Public,Yes,4,Yes,NA,NA,-79.3207956529,43.7645460279
+130,747,Ruddington Park,75 Ruddington Dr,Public,Yes,3,Not indicated,NA,NA,-79.3892434185,43.7922885516
+131,235,Runnymede Park,221 Ryding Ave,Public,No,2,Yes,NA,NA,-79.4785521342,43.6682913596
+132,1748,Scarboro Crescent Park,61 Undercliff Dr,Club,Yes,4,Yes,Scarborough Bluffs Tennis Club,http://www.sbtennis.org,-79.2418181671,43.7038058727
+133,1471,Scarlett Mills Park,235 Edenbridge Dr,Club,Yes,4,Not indicated,Edenbridge Tennis Club,https://edenbridgetennis.com/,-79.5106471991,43.675747482
+134,748,Seneca Hill Park,620 Seneca Hill Dr,Club,Yes,4,Not indicated,Seneca Hill Tennis Club,https://senecahilltennisclub.com/,-79.3517317119,43.7915047411
+135,752,Sentinel Park,295 Sentinel Rd,Public,No,2,Yes,NA,NA,-79.4985517251,43.7552003414
+136,590,Seven Oaks Park,372 Military Trl,Club,Yes,3,Not indicated,Seven Oaks Tennis Club,NA,-79.2105842681,43.7882509494
+137,2595,Shawnee Park,81 Shawnee Cir,Public,No,4,Yes,NA,NA,-79.3383512436,43.797043156
+138,877,Silver Creek Park,44 Strathdee Dr.,Club,Yes,3,Yes,Silver Creek Seniors Tennis Club,NA,-79.5434038267,43.6827011213
+139,2065,Sir Adam Beck Park,55 Eltham Dr,Public,Yes,2,Not indicated,NA,NA,-79.5475491068,43.602121408
+140,200,Sir Winston Churchill Park,301 St. Clair Ave W,Club,Yes,7,Not indicated,Sir Winston Churchill Tennis Club,http://www.winstonchurchilltennis.ca,-79.408860746,43.6828812958
+141,348,Sorauren Avenue Park,289 Sorauren Ave,Public,No,2,Yes,NA,NA,-79.443067482,43.6486487345
+142,3693,Stanley Greene Park,55 Stanley Greene Blvd.,Public,Yes,2,Not indicated,NA,NA,-79.4773371246,43.7344958725
+143,761,Stanley Park,27 Stanley Rd.,Public,No,3,Yes,NA,NA,-79.515406362,43.7419026899
+144,2750,Stanley Park South - Toronto,700 Wellington St W,Public,No,2,Not indicated,NA,NA,-79.4089348293,43.6419107656
+145,2034,Stephen Leacock Park,2530 Birchmount Rd,Club,Yes,4,Not indicated,Stephen Leacock Tennis Club,http://www.stephenleacock-tennis.ca,-79.3024857029,43.7872164775
+146,762,Strathburn Park,55 Strathburn Blvd,Public,Yes,2,Not indicated,NA,NA,-79.5327912218,43.7221408633
+147,870,Summerlea Park,2 Arcot Blvd,Public,Yes,2,Not indicated,NA,NA,-79.5485540204,43.7306176054
+148,871,Sunnydale Acres Park,50 Amoro Dr,Public,Yes,4,Not indicated,NA,NA,-79.5785252771,43.7240965942
+149,1021,Sunnylea Park,195 Prince Edward Dr S,Public,Yes,2,Yes,NA,NA,-79.5016309529,43.6415571047
+150,763,Sweeney Park,110 Sweeney Dr,Public,Yes,3,Not indicated,NA,NA,-79.316011738,43.7362132992
+151,216,Symington Avenue Playground,431 Perth Ave,Public,No,2,Yes,NA,NA,-79.4522856811,43.6667061047
+152,2154,Tam Heather Country Club Grounds,50 Bonspiel Dr,Club,Yes,4,Not indicated,NA,NA,-79.1977789209999,43.7914613609999
+153,543,Thomson Memorial Park,1005 Brimley Rd,Club,Yes,3,Not indicated,Thomson Park Tennis Club,NA,-79.2533708865,43.7575786177
+154,764,Three Valleys Park,82 Three Valleys Dr,Club,Yes,2,Not indicated,Parkway Valley Tennis Club,http://www.pvtc.ca,-79.3394444969,43.7505973363
+155,837,Tom Riley Park,4725 Dundas St. W,Club,Yes,3,Yes,Central Tennis Club,http://www.centraltennisclub.com,-79.5217785888,43.6484570523
+156,276,Topham Park,181 Westview Blvd.,Public,Yes,2,Yes,NA,NA,-79.3065172647,43.7100225274
+157,766,Tournament Park,40 Tournament Dr,Club,Yes,4,Not indicated,Tournament Park Tennis Club,http://www.tournamentpark.com,-79.3996976275,43.7515342315
+158,934,Trace Manes Park,110 Rumsey Rd,Club,Yes,6,Not indicated,Leaside Tennis Club,http://www.leasidetennis.org,-79.3674495146,43.705570191
+159,241,Trinity Bellwoods Park,790 Queen St W,Public,No,8,Yes,NA,NA,-79.4143036054,43.6477934801
+160,772,Viewmount Park,169 Viewmount Ave,Club,Yes,4,Not indicated,Viewmount Park Tennis Club,https://viewmount.ca,-79.4374593876,43.7070287033
+161,265,Wanless Park,250 Wanless Ave,Club,Yes,5,Not indicated,Wanless Park Tennis Club,http://www.wanlesstennis.com,-79.3920573305,43.728932197
+162,773,Wedgewood Park - Etobicoke,15 Swan Ave,Public,Yes,1,Not indicated,NA,NA,-79.547517477,43.6444634749
+163,2673,Wedgewood Park - North York,145 Wedgewood Dr,Public,No,2,Yes,NA,NA,-79.4063113799,43.7905113086
+164,873,West Deane Park,400 Martin Grove Road,Club,Yes,4,Not indicated,Martingrove Tennis Club,http://www.martingrovetennis.com,-79.5634940078,43.6639989632
+165,754,West Rouge Park,270 Rouge Hills Dr,Club,Yes,3,Not indicated,West Rouge Tennis Club,https://wrtctennis.com/,-79.1254637314,43.7915901903
+166,876,Westgrove Park,15 Redgrave Dr,Public,Yes,2,Not indicated,NA,NA,-79.5676612134,43.6818208024
+167,2006,Westmount Park,22 Arcade Dr,Public,Yes,3,Yes,NA,NA,-79.5188097181,43.687305663
+168,508,Weston Lions Park,2125 Lawrence Ave W,Club,Yes,4,Not indicated,York Weston Lions Tennis Club,http://www.ywtc.ca,-79.5180978282,43.6985583795
+169,874,Westway Park,175 The Westway,Public,Yes,4,Not indicated,NA,NA,-79.5415217577,43.6877692708
+170,865,Willowdale Park,75 Hollywood Ave,Club,Yes,4,Not indicated,North York Tennis Club,http://www.nytc.ca,-79.407279077,43.7663856008
+171,586,Wishing Well Park,1700 Pharmacy Ave,Club,Yes,3,Not indicated,Wishing Well Tennis Club,http://www.wwtc.sprinterweb.net,-79.3166203898,43.7698684436
+172,306,Withrow Park and Clubhouse,725 Logan Ave,Public,No,2,Yes,NA,NA,-79.3469330614,43.6744320603
+173,1476,York Mills Valley Park,3865 Yonge St,Club,Yes,5,Not indicated,Valley Tennis Club,http://www.valleytennisclub.com,-79.4053132032,43.7404834459

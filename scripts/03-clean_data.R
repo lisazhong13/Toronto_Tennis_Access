@@ -1,44 +1,100 @@
 #### Preamble ####
-# Purpose: Cleans the raw plane data recorded by two observers..... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 6 April 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Cleans the Toronto tennis facilities data downloaded from the
+# Toronto Open Data Portal and creates an analysis-ready dataset.
+# Author: Jingwen Zhong
+# Date: 22 September 2026
+# Contact: lisazjw.zhong@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites:
+#   - The `tidyverse` package must be installed
+#   - The `jsonlite` package must be installed
+#   - 02-download_data.R must have been run
+# Any other information needed? Run this script from the
+# `toronto-tennis-access` R project.
+
 
 #### Workspace setup ####
 library(tidyverse)
 
-#### Clean data ####
-raw_data <- read_csv("inputs/data/plane_data.csv")
 
+#### Load raw data ####
+raw_data <- read_csv(
+  "data/01-raw_data/raw_data.csv",
+  show_col_types = FALSE
+)
+
+
+#### Helper functions ####
+
+get_longitude <- function(x) {
+  jsonlite::fromJSON(x)$coordinates[1, 1]
+}
+
+get_latitude <- function(x) {
+  jsonlite::fromJSON(x)$coordinates[1, 2]
+}
+
+
+#### Clean data ####
 cleaned_data <-
   raw_data |>
-  janitor::clean_names() |>
-  select(wing_width_mm, wing_length_mm, flying_time_sec_first_timer) |>
-  filter(wing_width_mm != "caw") |>
-  mutate(
-    flying_time_sec_first_timer = if_else(flying_time_sec_first_timer == "1,35",
-                                   "1.35",
-                                   flying_time_sec_first_timer)
+  rename(
+    record_id = X_id,
+    location_id = ID,
+    name = Name,
+    type = Type,
+    lights = Lights,
+    courts = Courts,
+    club_name = ClubName,
+    club_website = ClubWebsite,
+    location_address = LocationAddress,
+    winter_play = WinterPlay
   ) |>
-  mutate(wing_width_mm = if_else(wing_width_mm == "490",
-                                 "49",
-                                 wing_width_mm)) |>
-  mutate(wing_width_mm = if_else(wing_width_mm == "6",
-                                 "60",
-                                 wing_width_mm)) |>
   mutate(
-    wing_width_mm = as.numeric(wing_width_mm),
-    wing_length_mm = as.numeric(wing_length_mm),
-    flying_time_sec_first_timer = as.numeric(flying_time_sec_first_timer)
+    across(
+      where(is.character),
+      str_squish
+    )
   ) |>
-  rename(flying_time = flying_time_sec_first_timer,
-         width = wing_width_mm,
-         length = wing_length_mm
-         ) |> 
-  tidyr::drop_na()
+  mutate(
+    # Stanley Greene Park is recorded as Type = "None" in the raw data.
+    # External evidence identifies the courts as public.
+    type = case_when(
+      name == "Stanley Greene Park" & type == "None" ~ "Public",
+      TRUE ~ type
+    ),
+    
+    # Blank WinterPlay entries are not interpreted as confirmed "No".
+    winter_play = case_when(
+      winter_play == "Yes" ~ "Yes",
+      winter_play == "" ~ "Not indicated",
+      TRUE ~ "Not indicated"
+    ),
+    
+    club_name = na_if(club_name, ""),
+    club_website = na_if(club_website, ""),
+    
+    longitude = map_dbl(geometry, get_longitude),
+    latitude = map_dbl(geometry, get_latitude)
+  ) |>
+  select(
+    record_id,
+    location_id,
+    name,
+    location_address,
+    type,
+    lights,
+    courts,
+    winter_play,
+    club_name,
+    club_website,
+    longitude,
+    latitude
+  )
+
 
 #### Save data ####
-write_csv(cleaned_data, "outputs/data/analysis_data.csv")
+write_csv(
+  cleaned_data,
+  "data/02-analysis_data/cleaned_data.csv"
+)
