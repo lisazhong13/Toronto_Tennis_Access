@@ -98,3 +98,81 @@ write_csv(
   cleaned_data,
   "data/02-analysis_data/cleaned_data.csv"
 )
+
+#### Clean neighbourhood population data ####
+
+# Load raw 2021 Neighbourhood Profiles
+neighbourhood_profiles_raw <- readRDS(
+  "data/01-raw_data/neighbourhood_profiles_2021_raw.rds"
+)
+
+
+# The XLSX may contain either one sheet or multiple sheets.
+# Find the sheet containing the neighbourhood census profile.
+if (inherits(neighbourhood_profiles_raw, "data.frame")) {
+  
+  neighbourhood_profile <- neighbourhood_profiles_raw
+  
+} else {
+  
+  profile_sheet <- which(
+    map_lgl(
+      neighbourhood_profiles_raw,
+      ~ any(
+        .x[[1]] == "Neighbourhood Number",
+        na.rm = TRUE
+      )
+    )
+  )[1]
+  
+  neighbourhood_profile <-
+    neighbourhood_profiles_raw[[profile_sheet]]
+}
+
+
+# Give the first column a simple name.
+names(neighbourhood_profile)[1] <- "indicator"
+
+
+# Extract neighbourhood number and population.
+neighbourhood_population <- neighbourhood_profile |>
+  filter(
+    indicator %in% c(
+      "Neighbourhood Number",
+      "Total - Age groups of the population - 25% sample data"
+    )
+  ) |>
+  
+  pivot_longer(
+    cols = -indicator,
+    names_to = "neighbourhood",
+    values_to = "value"
+  ) |>
+  
+  pivot_wider(
+    names_from = indicator,
+    values_from = value
+  ) |>
+  
+  transmute(
+    neighbourhood_id = as.integer(`Neighbourhood Number`),
+    neighbourhood = neighbourhood,
+    population = as.numeric(
+      `Total - Age groups of the population - 25% sample data`
+    )
+  )
+
+
+# Check that all 158 neighbourhoods are represented
+if (nrow(neighbourhood_population) == 158) {
+  message("Population data contains 158 Toronto neighbourhoods.")
+} else {
+  stop("Population data does not contain 158 neighbourhoods.")
+}
+
+
+# Save analysis-ready population data
+write_csv(
+  neighbourhood_population,
+  "data/02-analysis_data/neighbourhood_population.csv"
+)

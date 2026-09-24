@@ -56,8 +56,8 @@ record_id,location_id,name,location_address,type,lights,courts,winter_play,club_
 55,645,Gracedale Park,176 Gracedale Blvd,Public,No,3,Yes,NA,NA,-79.5621766567,43.751942337
 56,648,Grandravine Park,23 Grandravine Dr,Public,No,3,Not indicated,NA,NA,-79.4913156605,43.7519255923
 57,649,Graydon Hall Park,215 Graydon Hall Dr,Public,Yes,3,Not indicated,NA,NA,-79.3420432259,43.7629563033
-58,651,Gwendolen Park,3 Gwendolen Cres,Club,Yes,3,Not indicated,Gwendolen Tennis Club,http://www.gwendolentennis.com,-79.4199866692,43.7513187144
-59,651,Gwendolen Park,3 Gwendolen Cres,Public,Yes,1,Not indicated,NA,NA,-79.4199866692,43.7513187144
+58,651,Gwendolen Park,3 Gwendolen Cres,Public,Yes,1,Not indicated,NA,NA,-79.4199866692,43.7513187144
+59,651,Gwendolen Park,3 Gwendolen Cres,Club,Yes,3,Not indicated,Gwendolen Tennis Club,http://www.gwendolentennis.com,-79.4199866692,43.7513187144
 60,654,Havenbrook Park,15 Havenbrook Blvd.,Club,Yes,4,Not indicated,Henry Farm Tennis Club,http://www.henryfarmtennisclub.ca,-79.356629149,43.7677120823
 61,2365,Hawksbury Park,1 A Hawksbury Dr,Club,Yes,6,Not indicated,Bayview Village Tennis Club,http://www.bayviewvillagetennis.com,-79.3830617488,43.7708575539
 62,659,Hendon Park,50 Hendon Ave,Public,Yes,4,Not indicated,NA,NA,-79.4207514299,43.7814751015

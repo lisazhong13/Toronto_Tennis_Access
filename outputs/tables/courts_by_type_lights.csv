@@ -1,0 +1,5 @@
+type,lights,records,total_reported_courts,mean_courts,median_courts
+Club,No,3,14,4.666666666666667,3
+Club,Yes,63,255,4.0476190476190474,4
+Public,No,45,128,2.844444444444444,2
+Public,Yes,62,184,2.967741935483871,3
