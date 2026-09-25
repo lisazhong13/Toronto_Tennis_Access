@@ -1,259 +1,459 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
-author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: [https://github.com/RohanAlexander/starter_folder](https://github.com/RohanAlexander/starter_folder)."
+title: "More Than a Third of Toronto Neighbourhoods Have No City Tennis Court"
+subtitle: "Club-run courts are almost always lit, while public courts carry most winter-play designations"
+author:
+  - Jingwen Zhong
+thanks: "Code and data are available at: [https://github.com/lisazhong13/Toronto_Tennis_Access](https://github.com/lisazhong13/Toronto_Tennis_Access)"
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
-format: pdf
-number-sections: true
+abstract: "Toronto's City-owned tennis courts are usually described by a single total, but courts differ in who runs them and when they can be used. Using 173 facility records from Open Data Toronto, matched to the city's 158 neighbourhoods and their 2021 Census populations, I compare Public and Club records and calculate courts per 10,000 residents. Nearly all Club records (95%) have lights, compared with 58 % of Public records, while Public records are far more likely to be designated for winter play (50% versus 14%). Supply is also uneven: 57 neighbourhoods, over a third of the city, contain no City tennis court, so the city-wide total of 581 courts overstates what many residents have nearby."
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+execute:
+  echo: false
+  warning: false
+  message: false
 bibliography: references.bib
 ---
 
 ```{r}
 #| include: false
-#| warning: false
-#| message: false
 
 library(tidyverse)
-library(palmerpenguins)
+library(sf)
+library(here)
+library(tinytable)
+
+analysis_data <- read_csv(
+  here("data/02-analysis_data/cleaned_data.csv"),
+  show_col_types = FALSE
+) |>
+  mutate(
+    type = factor(type, levels = c("Public", "Club")),
+    lights = factor(lights, levels = c("No", "Yes")),
+    winter_play = factor(winter_play, levels = c("Not indicated", "Yes"))
+  )
+
+neighbourhood_population <- read_csv(
+  here("data/02-analysis_data/neighbourhood_population.csv"),
+  show_col_types = FALSE
+)
+
+municipal_boundaries <- st_read(
+  here("data/01-raw_data/gta_municipal_boundaries.geojson"),
+  quiet = TRUE
+) |>
+  st_transform(4326)
+
+toronto_neighbourhoods <- st_read(
+  here("data/01-raw_data/toronto_neighbourhoods.geojson"),
+  quiet = TRUE
+) |>
+  st_transform(4326)
+
+tennis_sf <- analysis_data |>
+  st_as_sf(coords = c("longitude", "latitude"), crs = 4326, remove = FALSE)
+
+# Assign tennis records to Toronto neighbourhoods
+tennis_neighbourhood <- st_join(
+  tennis_sf,
+  toronto_neighbourhoods |>
+    transmute(neighbourhood_id = as.integer(AREA_SHORT_CODE)),
+  join = st_within,
+  left = TRUE
+)
+
+# Sum reported courts by neighbourhood
+neighbourhood_courts <- tennis_neighbourhood |>
+  st_drop_geometry() |>
+  filter(!is.na(neighbourhood_id)) |>
+  group_by(neighbourhood_id) |>
+  summarise(total_reported_courts = sum(courts), .groups = "drop")
+
+# Combine court counts with neighbourhood population
+neighbourhood_tennis_table <- neighbourhood_population |>
+  left_join(neighbourhood_courts, by = "neighbourhood_id") |>
+  mutate(
+    total_reported_courts = replace_na(total_reported_courts, 0),
+    courts_per_10000 = total_reported_courts / population * 10000,
+    court_status = if_else(
+      total_reported_courts == 0,
+      "No City tennis court",
+      "At least one court"
+    )
+  )
+
+# Shared figure styling: colour-blind-safe (Okabe-Ito) palette
+type_colours <- c(Public = "#0072B2", Club = "#E69F00")
+
+theme_paper <- theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    plot.title.position = "plot",
+    plot.caption = element_text(colour = "grey40", hjust = 0),
+    plot.caption.position = "plot",
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+  )
+
+data_source <- "Source: City of Toronto, Tennis Courts - Facilities (Open Data Toronto)."
+population_source <- "Population: 2021 Census, City of Toronto Neighbourhood Profiles."
+
+# Frequently used numbers
+n_public <- sum(analysis_data$type == "Public")
+n_club <- sum(analysis_data$type == "Club")
+n_zero <- sum(neighbourhood_tennis_table$total_reported_courts == 0)
+n_neighbourhoods <- nrow(neighbourhood_tennis_table)
+median_rate <- median(neighbourhood_tennis_table$courts_per_10000)
+mean_rate <- mean(neighbourhood_tennis_table$courts_per_10000)
 ```
 
+# Introduction {#sec-intro}
 
-# Introduction
+Public tennis courts are among the cheapest ways a city can offer outdoor exercise: most are free, need no booking, and serve players of every age. Toronto's Parks and Recreation Facilities Master Plan treats courts as core neighbourhood infrastructure [@torontofmp2017], and research on park access finds that recreation facilities are often distributed unequally across urban neighbourhoods [@rigolon2016; @wolch2014]. Yet public discussion of Toronto's courts tends to rely on a single city-wide count.
 
-Overview paragraph
+A count hides two things. First, not all courts are alike: some are operated by community tennis clubs during the playing season [@tennislistings], and courts differ in whether they have lights for evening play or are designated for winter use. Second, a court total says nothing about where courts are relative to where people live. No published analysis I am aware of combines Toronto's facility records with neighbourhood population to describe either difference.
 
-Estimand paragraph
+Using 173 tennis records from Open Data Toronto, I compare Public and Club records and calculate reported courts per 10,000 residents for each of the city's 158 neighbourhoods. Club records are almost always lit (63 of 66), while Public records are split (62 of 107). Public records hold most of the winter-play designations (54 of 63). The median neighbourhood has 1.48 courts per 10,000 residents, and 57 neighbourhoods have none. These patterns matter for residents choosing where to play and for the City when it decides where to add or upgrade courts.
 
-Results paragraph
-
-Why it matters paragraph
-
-Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
-
-
-
-
-
+The remainder of this paper is structured as follows. @sec-data describes the data sources, how facilities become records, and each variable. @sec-results compares lighting and winter play by operation type and describes neighbourhood-level supply. @sec-discussion discusses interpretation, limitations, and next steps, and @sec-conclusion concludes. Data cleaning details are in @sec-appendix-cleaning.
 
 # Data {#sec-data}
 
-## Overview
+## Sources and context {#sec-data-sources}
 
-We use the statistical programming language R [@citeR].... Our data [@shelter].... Following @tellingstories, we consider...
+This paper draws on three datasets from Open Data Toronto, the City of Toronto's open data portal. The primary dataset is the City's list of tennis facilities [@tennisdata], published by Parks, Forestry and Recreation. It records each facility's name, address, operation type, lighting, number of courts, winter-play designation, and geographic coordinates. The second is the boundaries of Toronto's 158 neighbourhoods [@neighbourhoodsdata], and the third is the Neighbourhood Profiles [@profilesdata], which report 2021 Census population for each neighbourhood. Boundaries of the surrounding municipalities are used only as a background layer in @fig-map.
 
-Overview text
+All data were downloaded with the opendatatoronto package [@opendatatoronto] and analysed in R [@citeR] using the tidyverse [@tidyverse], dplyr [@dplyr], sf [@sf], janitor [@janitor], here [@here], and testthat [@testthat]. Graphs were made with ggplot2 [@ggplot2] and tables with tinytable [@tinytable]. The workflow follows @tellingstories.
 
-## Measurement
-	
-Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
+The tennis dataset exists because the City manages courts as public assets and publishes the list so residents can find a place to play. It therefore describes City-owned outdoor courts only. Courts at private clubs, schools, universities, and condominium buildings, and indoor or bubbled facilities, are not included, so the data describe the City's contribution to tennis supply rather than all tennis supply in Toronto. The dataset contains no information about people, so it raises few privacy concerns, but the omissions matter ethically: a neighbourhood with no City court may still have private courts that are available only to those who can pay.
 
-## Outcome variables
+Other datasets could have been used. The City's broader Parks and Recreation Facilities data list tennis courts alongside many other amenities, but they do not report lighting or winter-play status, which are central to this paper. Tennis Canada and private clubs publish facility information, but not in a consistent, downloadable form that covers the whole city.
 
-Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
+## Overview of the tennis records {#sec-data-overview}
 
-
-
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+After cleaning, there are `r nrow(analysis_data)` tennis records but only `r n_distinct(analysis_data$location_id)` distinct location identifiers. A single City location can therefore appear in more than one record; in particular, some locations have separate Public and Club records. Throughout this paper, I refer to observations as tennis records rather than assuming that each row is a unique physical location. @tbl-summary summarises the records. The analysis focuses on operation type, court count, lighting, winter-play designation, geographic location, and neighbourhood population. Facility names, addresses, and club contact fields are retained for identification but are not substantively analysed.
 
 ```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
-#| echo: false
+#| label: tbl-summary
+#| tbl-cap: "The 173 City tennis records describe 581 reported courts at 170 distinct locations. Most records are Public, and nearly three in four have lights."
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
-
-analysis_data <- read_csv(here::here("data/02-analysis_data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
-
-Talk way more about it. 
-
-## Predictor variables
-
-Add graphs, tables and text.
-
-Use sub-sub-headings for each outcome variable and feel free to combine a few into one if they go together naturally.
-
-
-
-
-
-
-
-
-# Model
-
-The goal of our modelling strategy is twofold. Firstly,...
-
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
-
-## Model set-up
-
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
-
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
-
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
-
-
-### Model justification
-
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
-
-# Results
-
-Our results are summarized in @tbl-modelresults.
-
-```{r}
-#| echo: false
-#| eval: true
-#| warning: false
-#| message: false
-
-library(rstanarm)
-
-first_model <-
-  readRDS(file = here::here("models/first_model.rds"))
-```
-
-```{r}
-#| echo: false
-#| eval: true
-#| label: tbl-modelresults
-#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
-#| warning: false
-
-modelsummary::modelsummary(
-  list(
-    "First model" = first_model
+tibble(
+  Measure = c(
+    "Tennis records",
+    "Distinct location IDs",
+    "Reported courts",
+    "Public records",
+    "Club records",
+    "Records with lights",
+    "Records without lights",
+    "Records designated for winter play"
   ),
-  statistic = "mad",
-  fmt = 2
+  Count = c(
+    nrow(analysis_data),
+    n_distinct(analysis_data$location_id),
+    sum(analysis_data$courts),
+    n_public,
+    n_club,
+    sum(analysis_data$lights == "Yes"),
+    sum(analysis_data$lights == "No"),
+    sum(analysis_data$winter_play == "Yes")
+  )
+) |>
+  tt() |>
+  format_tt(j = 2, digits = 0, num_fmt = "decimal", num_mark_big = ",")
+```
+
+## Measurement {#sec-measurement}
+
+Each record begins as a City-owned tennis facility entered into the Parks, Forestry and Recreation inventory. Staff record where the facility is, how many courts it has, whether it is operated directly by the City (Public) or by a community tennis club (Club), whether lights are installed, and whether it is designated for winter play. The dataset therefore records what the City has catalogued, not how courts are used: a court that is closed for repair, or a designation that is not honoured in practice, looks the same as any other.
+
+The type variable describes the operating arrangement recorded by the City. It should not be read as a simple distinction between accessible and inaccessible courts, because Club courts are generally open to the public outside club hours. The lights variable records whether lighting is installed. Lighting allows play after dark, but it does not tell us opening hours or whether lights are switched on.
+
+The raw winter-play variable contains explicit Yes values and blank values. I code blank entries as Not indicated rather than No, because the absence of a designation does not establish that winter play is unavailable. The courts variable reports the number of courts associated with each record. Because some locations appear in more than one record, I describe the sum as the number of reported courts rather than a verified count of distinct physical courts.
+
+Population comes from the 2021 Census, which counts people where they usually live on Census day. It may undercount some groups, and it does not include people who work in or visit a neighbourhood. Each tennis record is placed in a neighbourhood using its coordinates. For each neighbourhood, I then calculate:
+
+$$ \text{Reported courts per 10,000 residents} = \frac{\text{Reported courts in neighbourhood}}{\text{Neighbourhood population}} \times 10{,}000. $$ {#eq-courts-per-resident}
+
+In words, this is the number of courts a neighbourhood would have for every 10,000 people who live there. Dividing by population makes neighbourhoods of different sizes comparable, and multiplying by 10,000 gives numbers that are easy to picture. The measure describes infrastructure relative to residents; it is not a direct measure of demand or access, because people travel across neighbourhood boundaries and not everyone wants to play tennis.
+
+## Courts per record {#sec-courts-per-record}
+
+@fig-courts-record shows how many courts each record has. Half of all records have `r median(analysis_data$courts)` or fewer courts. The median Public record has `r median(analysis_data$courts[analysis_data$type == "Public"])` courts and the median Club record has `r median(analysis_data$courts[analysis_data$type == "Club"])`. The largest record has `r max(analysis_data$courts)` courts, so the difference between a small and a large facility is several-fold.
+
+```{r}
+#| label: fig-courts-record
+#| fig-cap: "Number of reported courts at each of the 173 City tennis records, shown separately for Public and Club records. Each bar counts records with that number of courts. Most facilities are small, while a few large facilities hold a disproportionate share of the city's courts."
+#| fig-width: 7
+#| fig-height: 5
+
+ggplot(analysis_data, aes(x = courts, fill = type)) +
+  geom_bar(width = 0.8) +
+  facet_wrap(vars(type), ncol = 1) +
+  scale_fill_manual(values = type_colours, guide = "none") +
+  scale_x_continuous(breaks = seq(1, max(analysis_data$courts), by = 1)) +
+  labs(
+    title = paste0(
+      "Half of Toronto's tennis records have ",
+      median(analysis_data$courts),
+      " or fewer courts"
+    ),
+    x = "Reported courts at the facility",
+    y = "Number of tennis records",
+    caption = data_source
+  ) +
+  theme_paper +
+  theme(panel.grid.major.x = element_blank())
+```
+
+# Results {#sec-results}
+
+## Tennis records are spread across the city {#sec-results-map}
+
+@fig-map places every tennis record at its recorded coordinates, coloured by operation type and sized by its number of reported courts. Public records reach every part of Toronto, including almost all of Etobicoke in the west, while Club records are concentrated in the central and north-eastern parts of the city. Because point sizes vary, the map also shows that two locations can represent very different amounts of infrastructure.
+
+```{r}
+#| label: fig-map
+#| fig-cap: "Each point is one of 173 City tennis records, coloured by operation type and sized by its number of reported courts. Public records cover the whole city, including nearly all of Etobicoke, while Club records cluster in central and north-eastern Toronto. Grey lines are the boundaries of Toronto's 158 neighbourhoods."
+#| fig-width: 8
+#| fig-height: 6
+
+municipality_labels <- municipal_boundaries |>
+  filter(!municipality %in% c("Toronto", "Brampton")) |>
+  st_transform(26917) |>
+  st_point_on_surface() |>
+  st_transform(4326)
+
+neighbourhood_lines <- st_sf(
+  geometry = st_boundary(st_geometry(toronto_neighbourhoods))
 )
+
+ggplot() +
+  geom_sf(data = municipal_boundaries, fill = "grey96", colour = "grey60", linewidth = 0.4) +
+  geom_sf(data = neighbourhood_lines, colour = "grey78", linewidth = 0.2) +
+  geom_sf_text(data = municipality_labels, aes(label = municipality), colour = "grey45", size = 3) +
+  geom_sf(data = tennis_sf, aes(colour = type, size = courts), alpha = 0.8) +
+  scale_colour_manual(values = type_colours, name = "Operation type") +
+  scale_size_continuous(range = c(1.2, 6), breaks = c(1, 3, 5, 8, 13), name = "Reported courts") +
+  coord_sf(xlim = c(-79.66, -79.10), ylim = c(43.57, 43.87), expand = FALSE) +
+  labs(
+    title = "Club courts cluster in central and north-east Toronto; the west is almost all Public",
+    x = NULL,
+    y = NULL,
+    caption = data_source
+  ) +
+  theme_paper +
+  theme(legend.box = "vertical")
 ```
 
+## Club records are almost always lit {#sec-results-lights}
 
+@fig-lights compares the share of each operation type that has lights. Of the `r n_club` Club records, `r sum(analysis_data$type == "Club" & analysis_data$lights == "Yes")` are recorded as lit. Public records are split: `r sum(analysis_data$type == "Public" & analysis_data$lights == "Yes")` are lit and `r sum(analysis_data$type == "Public" & analysis_data$lights == "No")` are not, so more than four in ten Public records offer no play after dark. Almost all of the city's unlit tennis records are Public.
 
+```{r}
+#| label: fig-lights
+#| fig-cap: "Share of tennis records with and without lights, by operation type. Numbers inside the bars are record counts. Only 3 of 66 Club records lack lights, compared with 45 of 107 Public records."
+#| fig-width: 6
+#| fig-height: 4
 
-# Discussion
+lights_summary <- analysis_data |>
+  count(type, lights) |>
+  group_by(type) |>
+  mutate(share = n / sum(n)) |>
+  ungroup()
 
-## First discussion point {#sec-first-point}
+ggplot(lights_summary, aes(x = type, y = share, fill = lights)) +
+  geom_col(width = 0.6) +
+  geom_text(
+    data = lights_summary |> filter(share >= 0.1),
+    aes(label = paste0(n, " (", round(share * 100), "%)")),
+    position = position_stack(vjust = 0.5),
+    colour = "white",
+    size = 3.5
+  ) +
+  scale_y_continuous(labels = function(x) paste0(x * 100, "%")) +
+  scale_fill_manual(values = c(No = "grey65", Yes = "#0072B2"), name = "Lights installed") +
+  labs(
+    title = "95% of Club records have lights, compared with 58% of Public records",
+    x = NULL,
+    y = "Share of tennis records",
+    caption = data_source
+  ) +
+  theme_paper +
+  theme(panel.grid.major.x = element_blank())
+```
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+## Public records hold most winter-play designations {#sec-results-winter}
 
-## Second discussion point
+@fig-winter makes the same comparison for winter play. `r sum(analysis_data$type == "Public" & analysis_data$winter_play == "Yes")` of the `r n_public` Public records are designated for winter play, compared with `r sum(analysis_data$type == "Club" & analysis_data$winter_play == "Yes")` of the `r n_club` Club records. The remaining records have no designation, which should be read as "not indicated" rather than "no": the figure shows what the City records, not which courts are actually playable in winter.
 
-Please don't use these as sub-heading labels - change them to be what your point actually is.
+```{r}
+#| label: fig-winter
+#| fig-cap: "Share of tennis records designated for winter play, by operation type. Numbers inside the bars are record counts. Half of Public records carry a winter-play designation, compared with 9 of 66 Club records. Records without a designation are shown as 'Not indicated' because a blank entry does not confirm that winter play is unavailable."
+#| fig-width: 6
+#| fig-height: 4
 
-## Third discussion point
+winter_summary <- analysis_data |>
+  count(type, winter_play) |>
+  group_by(type) |>
+  mutate(share = n / sum(n)) |>
+  ungroup()
 
-## Weaknesses and next steps
+ggplot(winter_summary, aes(x = type, y = share, fill = winter_play)) +
+  geom_col(width = 0.6) +
+  geom_text(
+    aes(label = paste0(n, " (", round(share * 100), "%)")),
+    position = position_stack(vjust = 0.5),
+    colour = "white",
+    size = 3.5
+  ) +
+  scale_y_continuous(labels = function(x) paste0(x * 100, "%")) +
+  scale_fill_manual(values = c("Not indicated" = "grey65", Yes = "#0072B2"), name = "Winter play") +
+  labs(
+    title = "Half of Public records have a winter-play designation; 14% of Club records do",
+    x = NULL,
+    y = "Share of tennis records",
+    caption = data_source
+  ) +
+  theme_paper +
+  theme(panel.grid.major.x = element_blank(),
+        plot.title = element_text(size=11))
+```
 
-Weaknesses and next steps should also be included.
+## Tennis supply relative to population varies across neighbourhoods {#sec-results-neighbourhoods}
+
+City-wide totals ignore how many people live in each part of Toronto. @fig-courts-population first shows the raw ingredients of the per-resident measure: each point is a neighbourhood, placed by its population and its number of reported courts. The `r n_zero` neighbourhoods with no City tennis court sit along the bottom of the chart, and they span the full range of neighbourhood sizes, from small neighbourhoods to some of the most populous.
+
+```{r}
+#| label: fig-courts-population
+#| fig-cap: "Reported City tennis courts and 2021 population for each of Toronto's 158 neighbourhoods. Orange points are the 57 neighbourhoods with no City tennis court. Neighbourhoods with similar populations can have very different numbers of courts."
+#| fig-width: 7
+#| fig-height: 4.5
+
+ggplot(
+  neighbourhood_tennis_table,
+  aes(x = population, y = total_reported_courts, colour = court_status)
+) +
+  geom_point(size = 2, alpha = 0.8) +
+  scale_x_continuous(labels = function(x) format(x, big.mark = ",", scientific = FALSE)) +
+  scale_colour_manual(
+    values = c("No City tennis court" = "#D55E00", "At least one court" = "grey40"),
+    name = NULL
+  ) +
+  labs(
+    title = "Neighbourhoods of every size have no City tennis court",
+    x = "Neighbourhood population (2021 Census)",
+    y = "Reported courts",
+    caption = paste0(data_source, "\n", population_source)
+  ) +
+  theme_paper
+```
+
+@fig-courts-per-capita then shows the distribution of reported courts per 10,000 residents. The tallest bar is made up almost entirely of the `r n_zero` neighbourhoods, out of `r n_neighbourhoods`, that contain no City tennis court. Among neighbourhoods that do have courts, rates reach up to `r round(max(neighbourhood_tennis_table$courts_per_10000), 2)` per 10,000 residents.
+
+Two summaries describe the typical neighbourhood. The median is the value in the middle when all neighbourhoods are ranked from lowest to highest: half have fewer courts per 10,000 residents and half have more. Here the median is `r round(median_rate, 2)`. The mean, or ordinary average, is higher at `r round(mean_rate, 2)`, because a few neighbourhoods with very high rates pull it upward. When the mean sits above the median like this, the distribution is described as skewed to the right. @tbl-neighbourhoods in @sec-appendix-top lists the ten neighbourhoods with the highest rates.
+
+```{r}
+#| label: fig-courts-per-capita
+#| fig-cap: "Number of Toronto's 158 neighbourhoods at each level of reported City tennis courts per 10,000 residents. Orange marks the 57 neighbourhoods with no City tennis court. The dashed line is the median neighbourhood. Most neighbourhoods with courts have fewer than 7 per 10,000 residents, and a small number reach 8 to 10."
+#| fig-width: 7
+#| fig-height: 4.5
+
+ggplot(neighbourhood_tennis_table, aes(x = courts_per_10000, fill = court_status)) +
+  geom_histogram(binwidth = 0.5, boundary = 0, closed = "left", colour = "white") +
+  geom_vline(xintercept = median_rate, linetype = "dashed", colour = "grey25") +
+  annotate(
+    "text",
+    x = median_rate + 0.2,
+    y = n_zero - 7,
+    label = paste0("Median: ", round(median_rate, 2)),
+    hjust = 0,
+    size = 3.5,
+    colour = "grey25"
+  ) +
+  scale_fill_manual(
+    values = c("No City tennis court" = "#D55E00", "At least one court" = "grey55"),
+    name = NULL
+  ) +
+  labs(
+    title = paste0(n_zero, " of Toronto's ", n_neighbourhoods, " neighbourhoods have no City tennis court"),
+    x = "Reported courts per 10,000 residents",
+    y = "Number of neighbourhoods",
+    caption = paste0(data_source, "\n", population_source)
+  ) +
+  theme_paper
+```
+
+# Discussion {#sec-discussion}
+
+## Tennis records represent different kinds of infrastructure {#sec-discussion-types}
+
+Toronto's tennis records differ not only in location but also in operation type, court count, lighting, and winter-play designation. The lighting difference is the clearest. Nearly all Club records have lights, while more than four in ten Public records do not. This does not establish that one category is more accessible than the other, since Club courts may require a membership during club hours while unlit Public courts are free but unusable after dark. It does show that a simple count of facilities treats very different kinds of infrastructure as if they were the same.
+
+## Recorded winter play is not the same as winter tennis access {#sec-discussion-winter}
+
+The City records winter-play designation separately from operation type, and describes Club courts as those "generally permitted by community tennis clubs" [@tennislistings], an arrangement that mainly covers the spring-to-fall season. Winter tennis in Toronto is largely provided through a different model: seasonal bubbles and indoor courts that usually require a paid membership. The City's own fee schedule includes a seven-month Winter Tennis Club membership [@torontofees2026], and a new seasonal bubble at Eglinton Flats is set to operate from October to April beginning in fall 2026 [@eglintonflats2025]. Private clubs with covered or indoor courts are not in this dataset at all.
+
+The nine Club records marked for winter play therefore cannot be read as nine winter membership clubs, and the 57 Club records without a designation cannot be read as courts that close. @fig-winter describes what the City records about winter designation for its outdoor courts. It does not show where residents can actually play in winter, which likely depends more on paid bubbled and indoor facilities than on the outdoor court inventory.
+
+## Population changes the neighbourhood comparison {#sec-discussion-population}
+
+The neighbourhood analysis answers a different question from the city-wide totals. Absolute court numbers describe how much infrastructure sits in an area, while courts per 10,000 residents relate that infrastructure to the number of people who live there. A neighbourhood with several courts may still have comparatively little per resident if its population is large, and a small neighbourhood can have a high rate with only a handful of courts, as the top ten neighbourhoods in @tbl-neighbourhoods show.
+
+The 57 neighbourhoods without a City court are the most direct policy finding. Research on park access finds that recreation facilities are often distributed unequally across neighbourhoods [@rigolon2016], and residents of neighbourhoods without a nearby public court must travel or pay to play. Whether the zero-court neighbourhoods are also lower-income, denser, or less well served by transit is a question these data cannot answer on their own, but it is the natural next step.
+
+## Weaknesses and next steps {#sec-weaknesses}
+
+Several limitations affect the interpretation of these results. First, the tennis dataset contains administrative records rather than a verified inventory of unique physical courts. Some location identifiers occur in more than one row, including locations represented separately as Public and Club, so summing the courts variable produces a total of reported courts rather than a guaranteed count of unique courts.
+
+Second, the facility characteristics are imperfect measures of actual access. Lighting does not reveal opening hours, the Public and Club categories do not fully describe access rules, and winter-play designation does not measure actual use in winter. Third, population is only an approximate denominator for potential demand. Residents travel across neighbourhood boundaries to play, and age, interest in tennis, and transport options all affect demand.
+
+Future work could identify unique physical courts more precisely, add operating hours and membership rules, and calculate the distance from each home to the nearest Public court rather than relying on neighbourhood boundaries. Linking the zero-court neighbourhoods to income and transit data would show whether the gaps in supply fall hardest on residents with the fewest alternatives.
+
+# Conclusion {#sec-conclusion}
+
+Toronto's City-owned tennis infrastructure cannot be described by counting courts alone. Club records are almost always lit, Public records carry most winter-play designations, and the size of facilities varies several-fold. Once population is taken into account, supply is uneven: more than a third of the city's neighbourhoods have no City tennis court at all.
+
+These measures describe recorded infrastructure rather than actual access or demand, and they leave out private and indoor courts. Even so, they show that both the characteristics of facilities and the choice of denominator change the picture of who has a court nearby.
 
 \newpage
 
-\appendix
+# Appendix {.unnumbered}
 
-# Appendix {-}
-
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
+## Neighbourhoods with the highest court supply {#sec-appendix-top}
 
 ```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
+#| label: tbl-neighbourhoods
+#| tbl-cap: "The ten neighbourhoods with the most reported City tennis courts per 10,000 residents. All ten have between roughly 9,000 and 23,000 residents, so a modest number of courts produces a high rate."
 
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
+neighbourhood_tennis_table |>
+  arrange(desc(courts_per_10000)) |>
+  slice_head(n = 10) |>
+  select(
+    Neighbourhood = neighbourhood,
+    Population = population,
+    `Reported courts` = total_reported_courts,
+    `Courts per 10,000 residents` = courts_per_10000
+  ) |>
+  tt() |>
+  format_tt(j = 2:3, digits = 0, num_fmt = "decimal", num_mark_big = ",") |>
+  format_tt(j = 4, digits = 2, num_fmt = "decimal")
 ```
 
-## Diagnostics
+## Data cleaning {#sec-appendix-cleaning}
 
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
+The raw tennis data were downloaded with opendatatoronto and saved unchanged in the raw data folder. Column names were standardised with janitor. Blank values in the winter-play column were recoded as "Not indicated" rather than "No", for the reasons given in @sec-measurement. Records that share a location identifier were kept as separate records, because they describe different operating arrangements at the same site.
 
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
+To assign records to neighbourhoods, each record's longitude and latitude were converted into a spatial point using the WGS 84 coordinate system (the latitude-and-longitude system used by GPS). Each point was then matched to the neighbourhood boundary that contains it. `r sum(is.na(tennis_neighbourhood$neighbourhood_id))` record fell outside every neighbourhood boundary and were excluded from the neighbourhood analysis only. Reported courts were summed within each neighbourhood and joined to 2021 Census population using the City's neighbourhood identifier. Neighbourhoods with no tennis record were given zero courts.
 
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
+## Statement on LLM use {#sec-appendix-llm}
 
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
-
-
+ChatGPT was used to help plan the project, debug code, interpret error messages, discuss visualisation choices, draft the reference list, and edit written sections. All code was run and checked by the author, and all numerical results were verified against the data. The complete chat histories are available in the repository at `other/llm/usage.txt`.
 
 \newpage
-
 
 # References
-
-
