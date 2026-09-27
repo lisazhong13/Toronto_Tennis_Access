@@ -16,7 +16,7 @@ The core analysis uses three datasets from Open Data Toronto, downloaded using t
 - [Neighbourhoods](https://open.toronto.ca/dataset/neighbourhoods/), containing the boundaries of Toronto's 158 neighbourhoods.
 - [Neighbourhood Profiles](https://open.toronto.ca/dataset/neighbourhood-profiles/), used for 2021 Census neighbourhood population.
 
-A GeoJSON file containing surrounding GTA municipal boundaries is also stored in `data/01-raw_data` and is used only as a background layer in the map.
+Surrounding municipal boundaries are downloaded from OpenStreetMap by `scripts/02-download_data.R` and used only as a background layer in the map.
 
 ## File structure
 
@@ -50,7 +50,7 @@ The repository is structured as follows:
 
 The Quarto document reads the saved files from `data/01-raw_data` and `data/02-analysis_data`. It does not download the Open Data Toronto datasets during rendering. The neighbourhood spatial matching and calculation of reported courts per 10,000 residents are performed within the Quarto analysis.
 
-The analysis was run using R version 4.5.1.
+The analysis was run using R version 4.4.2
 
 ## Statement on LLM usage
 
