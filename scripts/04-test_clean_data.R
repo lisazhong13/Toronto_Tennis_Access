@@ -302,7 +302,7 @@ test_that("facility-type counts match the cleaned data", {
     sum(analysis_data$type == "Public"),
     107
   )
-  
+
   expect_equal(
     sum(analysis_data$type == "Club"),
     66

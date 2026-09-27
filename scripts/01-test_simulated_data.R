@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Tests the structure and validity of the simulated Toronto tennis
-#facilities dataset.
+# facilities dataset.
 # Author: Jingwen Zhong
 # Date: 20 September 2026
 # Contact: lisazjw.zhong@mail.utoronto.ca
@@ -9,7 +9,7 @@
 # - The `tidyverse` package must be installed and loaded
 # - 00-simulate_data.R must have been run
 # Any other information needed? Make sure you are in the
-#`toronto-tennis-access` rproj
+# `toronto-tennis-access` rproj
 
 
 #### Workspace setup ####
@@ -122,7 +122,7 @@ if (all(!is.na(analysis_data$Courts))) {
 # Check if all court counts are positive whole numbers
 if (
   all(analysis_data$Courts >= 1) &
-  all(analysis_data$Courts %% 1 == 0)
+    all(analysis_data$Courts %% 1 == 0)
 ) {
   message("Test Passed: All court counts are positive whole numbers.")
 } else {
@@ -171,7 +171,7 @@ if (n_distinct(analysis_data$Lights) >= 2) {
 if (
   all(
     is.na(analysis_data$WinterPlay) |
-    analysis_data$WinterPlay == "Yes"
+      analysis_data$WinterPlay == "Yes"
   )
 ) {
   message("Test Passed: WinterPlay contains only expected values.")
@@ -231,7 +231,7 @@ if (all(is.na(public_websites))) {
 # Check if coordinates are complete
 if (
   all(!is.na(analysis_data$Longitude)) &
-  all(!is.na(analysis_data$Latitude))
+    all(!is.na(analysis_data$Latitude))
 ) {
   message("Test Passed: Geographic coordinates contain no missing values.")
 } else {
@@ -243,7 +243,7 @@ if (
 if (
   all(
     analysis_data$Longitude >= -79.65 &
-    analysis_data$Longitude <= -79.10
+      analysis_data$Longitude <= -79.10
   )
 ) {
   message("Test Passed: Longitude values fall within plausible Toronto bounds.")
@@ -256,7 +256,7 @@ if (
 if (
   all(
     analysis_data$Latitude >= 43.58 &
-    analysis_data$Latitude <= 43.86
+      analysis_data$Latitude <= 43.86
   )
 ) {
   message("Test Passed: Latitude values fall within plausible Toronto bounds.")

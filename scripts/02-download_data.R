@@ -125,7 +125,7 @@ if (nrow(profile_resource) == 1) {
     profile_resources |>
       select(name, format)
   )
-  
+
   stop(
     "Expected exactly one 2021 158-neighbourhood XLSX resource."
   )
@@ -169,9 +169,9 @@ get_municipal_boundary <- function(municipality) {
     "q=", utils::URLencode(paste0(municipality, ", Ontario, Canada")),
     "&format=geojson&polygon_geojson=1&limit=5"
   )
-  
+
   temp_file <- tempfile(fileext = ".geojson")
-  
+
   download.file(
     url,
     temp_file,
@@ -180,9 +180,9 @@ get_municipal_boundary <- function(municipality) {
       "User-Agent" = "Toronto_Tennis_Access (github.com/lisazhong13/Toronto_Tennis_Access)"
     )
   )
-  
+
   results <- st_read(temp_file, quiet = TRUE)
-  
+
   # Keep only the municipal administrative boundary, not a street,
   # neighbourhood, or point with the same name.
   boundary <- results |>
@@ -192,13 +192,13 @@ get_municipal_boundary <- function(municipality) {
       st_geometry_type(geometry) %in% c("POLYGON", "MULTIPOLYGON")
     ) |>
     slice_head(n = 1)
-  
+
   if (nrow(boundary) != 1) {
     stop("No administrative boundary found for ", municipality, ".")
   }
-  
+
   Sys.sleep(1)
-  
+
   boundary |>
     transmute(municipality = municipality)
 }
@@ -210,7 +210,7 @@ municipal_boundaries <- map(municipalities, get_municipal_boundary) |>
 # Check that every municipality was returned exactly once
 if (
   nrow(municipal_boundaries) == length(municipalities) &&
-  setequal(municipal_boundaries$municipality, municipalities)
+    setequal(municipal_boundaries$municipality, municipalities)
 ) {
   message("All municipal boundaries successfully downloaded.")
 } else {

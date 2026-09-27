@@ -127,7 +127,7 @@ The remainder of this paper is structured as follows. @sec-data describes the da
 
 ## Sources and context {#sec-data-sources}
 
-This paper draws on three datasets from Open Data Toronto, the City of Toronto's open data portal. The primary dataset is the City's list of tennis facilities [@tennisdata], published by Parks, Forestry and Recreation. It records each facility's name, address, operation type, lighting, number of courts, winter-play designation, and geographic coordinates. The second is the boundaries of Toronto's 158 neighbourhoods [@neighbourhoodsdata], and the third is the Neighbourhood Profiles [@profilesdata], which report 2021 Census population for each neighbourhood. Boundaries of the surrounding municipalities, from OpenStreetMap [@osm] are used only as a background layer in @fig-map.
+This paper draws on three datasets from Open Data Toronto, the City of Toronto's open data portal. The primary dataset is the City's list of tennis facilities [@tennisdata], published by Parks, Forestry and Recreation. It records each facility's name, address, operation type, lighting, number of courts, winter-play designation, and geographic coordinates. The second is the boundaries of Toronto's 158 neighbourhoods [@neighbourhoodsdata], and the third is the Neighbourhood Profiles [@profilesdata], which report 2021 Census population for each neighbourhood. Boundaries of the surrounding municipalities, from OpenStreetMap [@osm], are used only as a background layer in @fig-map.
 
 All data were downloaded with the opendatatoronto package [@opendatatoronto] and analysed in R [@citeR] using the tidyverse [@tidyverse], dplyr [@dplyr], sf [@sf], here [@here], and testthat [@testthat]. Graphs were made with ggplot2 [@ggplot2] and tables with tinytable [@tinytable]. The workflow follows @tellingstories.
 
@@ -460,4 +460,4 @@ To assign records to neighbourhoods, each record's longitude and latitude were c
 
 # Statement on LLM use {#sec-appendix-llm}
 
-ChatGPT was used to help plan the project, debug code, interpret error messages, discuss visualisation choices, draft the reference list, and edit written sections. All code was run and checked by the author, and all numerical results were verified against the data. The complete chat histories are available in the repository at `other/llm_usage/usage.txt`.
+ChatGPT was used to help plan the project, debug code, interpret error messages, discuss visualisation choices, draft the reference list, and edit written sections. All code was run and checked by the author, and all numerical results were verified against the data. The complete chat histories are available in the repository at `other/llm_usage`.

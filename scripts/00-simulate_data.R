@@ -213,4 +213,3 @@ write_csv(
   analysis_data,
   "data/00-simulated_data/simulated_tennis_courts.csv"
 )
-

@@ -63,17 +63,15 @@ cleaned_data <-
       name == "Stanley Greene Park" & type == "None" ~ "Public",
       TRUE ~ type
     ),
-    
+
     # Blank WinterPlay entries are not interpreted as confirmed "No".
     winter_play = case_when(
       winter_play == "Yes" ~ "Yes",
       winter_play == "" ~ "Not indicated",
       TRUE ~ "Not indicated"
     ),
-    
     club_name = na_if(club_name, ""),
     club_website = na_if(club_website, ""),
-    
     longitude = map_dbl(geometry, get_longitude),
     latitude = map_dbl(geometry, get_latitude)
   ) |>
@@ -110,11 +108,8 @@ neighbourhood_profiles_raw <- readRDS(
 # The XLSX may contain either one sheet or multiple sheets.
 # Find the sheet containing the neighbourhood census profile.
 if (inherits(neighbourhood_profiles_raw, "data.frame")) {
-  
   neighbourhood_profile <- neighbourhood_profiles_raw
-  
 } else {
-  
   profile_sheet <- which(
     map_lgl(
       neighbourhood_profiles_raw,
@@ -124,7 +119,7 @@ if (inherits(neighbourhood_profiles_raw, "data.frame")) {
       )
     )
   )[1]
-  
+
   neighbourhood_profile <-
     neighbourhood_profiles_raw[[profile_sheet]]
 }
@@ -142,18 +137,15 @@ neighbourhood_population <- neighbourhood_profile |>
       "Total - Age groups of the population - 25% sample data"
     )
   ) |>
-  
   pivot_longer(
     cols = -indicator,
     names_to = "neighbourhood",
     values_to = "value"
   ) |>
-  
   pivot_wider(
     names_from = indicator,
     values_from = value
   ) |>
-  
   transmute(
     neighbourhood_id = as.integer(`Neighbourhood Number`),
     neighbourhood = neighbourhood,

@@ -1,10 +1,4 @@
-TRANSLATION NOTE
-
-This transcript has been translated into English from the original bilingual
-ChatGPT conversation. The substantive content, code, error messages, URLs,
-numerical results, and sequence of the conversation have been preserved.
-The English wording is a translation and is not a verbatim copy of the
-original bilingual transcript.
+LLM: ChatGPT-5.6 Sol
 
 PAPER REVIEW, FIGURE EDITS, LLM DOCUMENTATION, AND README
 ============================================================
