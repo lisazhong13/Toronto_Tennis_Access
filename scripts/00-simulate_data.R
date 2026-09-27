@@ -211,6 +211,6 @@ analysis_data <- tibble(
 #### Save data ####
 write_csv(
   analysis_data,
-  "data/00-simulated_data/simulated_data.csv"
+  "data/00-simulated_data/simulated_tennis_courts.csv"
 )
 

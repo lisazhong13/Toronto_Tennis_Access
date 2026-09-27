@@ -16,7 +16,7 @@
 library(tidyverse)
 
 analysis_data <- read_csv(
-  "data/00-simulated_data/simulated_data.csv",
+  "data/00-simulated_data/simulated_tennis_courts.csv",
   show_col_types = FALSE
 )
 

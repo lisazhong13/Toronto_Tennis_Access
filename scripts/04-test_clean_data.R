@@ -8,17 +8,19 @@
 # Pre-requisites:
 #   - The `tidyverse` package must be installed
 #   - The `testthat` package must be installed
+#   - The `here` package must be installed
 #   - 03-clean_data.R must have been run
 # Any other information needed? Run this script from the
-# `toronto-tennis-access` R project.
+# `Toronto_Tennis_Access` R project.
 
 
 #### Workspace setup ####
 library(tidyverse)
 library(testthat)
+library(here)
 
 analysis_data <- read_csv(
-  "data/02-analysis_data/cleaned_data.csv",
+  here("data/02-analysis_data/tennis_courts_cleaned.csv"),
   show_col_types = FALSE
 )
 

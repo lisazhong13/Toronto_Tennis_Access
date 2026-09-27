@@ -10,7 +10,7 @@
 #   - The `jsonlite` package must be installed
 #   - 02-download_data.R must have been run
 # Any other information needed? Run this script from the
-# `toronto-tennis-access` R project.
+# `Toronto_Tennis_Access` R project.
 
 
 #### Workspace setup ####
@@ -19,7 +19,7 @@ library(tidyverse)
 
 #### Load raw data ####
 raw_data <- read_csv(
-  "data/01-raw_data/raw_data.csv",
+  "data/01-raw_data/tennis_courts_raw.csv",
   show_col_types = FALSE
 )
 
@@ -96,7 +96,7 @@ cleaned_data <-
 #### Save data ####
 write_csv(
   cleaned_data,
-  "data/02-analysis_data/cleaned_data.csv"
+  "data/02-analysis_data/tennis_courts_cleaned.csv"
 )
 
 #### Clean neighbourhood population data ####

@@ -1,13 +1,14 @@
 #### Preamble ####
-# Purpose: Downloads and saves City of Toronto tennis court facilities data
-# from the Toronto Open Data Portal.
+# Purpose: Downloads and saves City of Toronto tennis court facilities data,
+# neighbourhood boundaries, and neighbourhood profiles from the Toronto Open
+# Data Portal, and surrounding municipal boundaries from OpenStreetMap.
 # Author: Jingwen Zhong
 # Date: 20 September 2026
 # Contact: lisazjw.zhong@mail.utoronto.ca
 # License: MIT
 # Pre-requisites:
-#   - The `opendatatoronto` package must be installed
-#   - The `tidyverse` package must be installed
+#   - The `opendatatoronto`, `tidyverse`, and `sf` packages must be installed
+#   - An internet connection (City of Toronto Open Data and OpenStreetMap)
 # Any other information needed? Run this script from the project root.
 
 
@@ -49,7 +50,7 @@ raw_data <- get_resource(tennis_resource)
 
 write_csv(
   raw_data,
-  "data/01-raw_data/raw_data.csv"
+  "data/01-raw_data/tennis_courts_raw.csv"
 )
 
 #### Download Toronto neighbourhood boundaries ####
@@ -140,4 +141,86 @@ neighbourhood_profiles_raw <- get_resource(
 saveRDS(
   neighbourhood_profiles_raw,
   "data/01-raw_data/neighbourhood_profiles_2021_raw.rds"
+)
+
+
+#### Download surrounding municipal boundaries (OpenStreetMap) ####
+
+# These polygons are used only as a background layer in the map figure.
+# They come from OpenStreetMap via the Nominatim search service, which returns
+# each municipality's administrative boundary as GeoJSON.
+# Nominatim's usage policy asks for an identifying User-Agent and no more than
+# one request per second, so the loop pauses between requests.
+# Data (c) OpenStreetMap contributors, available under the ODbL.
+
+municipalities <- c(
+  "Toronto",
+  "Markham",
+  "Vaughan",
+  "Richmond Hill",
+  "Mississauga",
+  "Brampton",
+  "Pickering"
+)
+
+get_municipal_boundary <- function(municipality) {
+  url <- paste0(
+    "https://nominatim.openstreetmap.org/search?",
+    "q=", utils::URLencode(paste0(municipality, ", Ontario, Canada")),
+    "&format=geojson&polygon_geojson=1&limit=5"
+  )
+  
+  temp_file <- tempfile(fileext = ".geojson")
+  
+  download.file(
+    url,
+    temp_file,
+    quiet = TRUE,
+    headers = c(
+      "User-Agent" = "Toronto_Tennis_Access (github.com/lisazhong13/Toronto_Tennis_Access)"
+    )
+  )
+  
+  results <- st_read(temp_file, quiet = TRUE)
+  
+  # Keep only the municipal administrative boundary, not a street,
+  # neighbourhood, or point with the same name.
+  boundary <- results |>
+    filter(
+      category == "boundary",
+      type == "administrative",
+      st_geometry_type(geometry) %in% c("POLYGON", "MULTIPOLYGON")
+    ) |>
+    slice_head(n = 1)
+  
+  if (nrow(boundary) != 1) {
+    stop("No administrative boundary found for ", municipality, ".")
+  }
+  
+  Sys.sleep(1)
+  
+  boundary |>
+    transmute(municipality = municipality)
+}
+
+municipal_boundaries <- map(municipalities, get_municipal_boundary) |>
+  bind_rows() |>
+  st_transform(4326)
+
+# Check that every municipality was returned exactly once
+if (
+  nrow(municipal_boundaries) == length(municipalities) &&
+  setequal(municipal_boundaries$municipality, municipalities)
+) {
+  message("All municipal boundaries successfully downloaded.")
+} else {
+  stop("Municipal boundary data do not match the expected municipalities.")
+}
+
+# Save locally so the paper reads a saved copy, never the live service
+st_write(
+  municipal_boundaries,
+  "data/01-raw_data/gta_municipal_boundaries.geojson",
+  delete_dsn = TRUE,
+  quiet = TRUE
 )
