@@ -56,4 +56,4 @@ The analysis was run using R version 4.5.1.
 
 ChatGPT was used during this project to assist with project planning, debugging code, interpreting error messages, discussing visualisation choices, preparing references, and editing written sections of the paper. All code was run and checked by the author, and all numerical results were verified against the underlying data.
 
-The complete relevant chat histories with both tools are available in `other/llm/usage.txt`.
+The complete relevant chat histories with both tools are available in `other/llm_usage/usage.txt`.
