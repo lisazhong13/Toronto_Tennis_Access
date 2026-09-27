@@ -1,4 +1,6 @@
 LLM: ChatGPT-5.6 Sol
+Note: This conversation was originally conducted in a mix of Chinese and English. It has been translated into English; code, error messages, and results are unchanged.
+
 QUARTO DEBUGGING, TABLE OF CONTENTS, AND PDF FORMATTING
 ============================================================
 

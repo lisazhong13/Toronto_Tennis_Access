@@ -25,7 +25,7 @@ The repository is structured as follows:
 - `data/00-simulated_data` contains the simulated tennis facility dataset used to test the expected data structure.
 - `data/01-raw_data` contains the raw tennis facilities data, Toronto neighbourhood boundaries, 2021 neighbourhood population data, and geographic boundary files used for mapping.
 - `data/02-analysis_data` contains the cleaned tennis facility dataset and analysis-ready neighbourhood population data.
-- `other/llm_usage` contains the complete LLM chat history (`usage.txt`).
+- `other/llm_usage` contains the complete LLM chat history.
 - `other/sketches` contains sketches used when planning the dataset, figures, and paper.
 - `paper` contains the Quarto source document (`paper.qmd`), bibliography (`references.bib`), and rendered PDF (`paper.pdf`).
 - `scripts` contains the R scripts used to simulate, test, download, and clean the data.
