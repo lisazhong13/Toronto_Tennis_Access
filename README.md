@@ -25,8 +25,7 @@ The repository is structured as follows:
 - `data/00-simulated_data` contains the simulated tennis facility dataset used to test the expected data structure.
 - `data/01-raw_data` contains the raw tennis facilities data, Toronto neighbourhood boundaries, 2021 neighbourhood population data, and geographic boundary files used for mapping.
 - `data/02-analysis_data` contains the cleaned tennis facility dataset and analysis-ready neighbourhood population data.
-- `other/llm_usage` contains the complete LLM chat history.
-- `other/sketches` contains sketches used when planning the dataset, figures, and paper.
+- `other/llm_usage` contains the complete LLM chat histories (`usage_1.txt`, `usage_2.txt`, and `usage_3_claude.txt`).- `other/sketches` contains sketches used when planning the dataset, figures, and paper.
 - `paper` contains the Quarto source document (`paper.qmd`), bibliography (`references.bib`), and rendered PDF (`paper.pdf`).
 - `scripts` contains the R scripts used to simulate, test, download, and clean the data.
 
@@ -54,6 +53,6 @@ The analysis was run using R version 4.4.2.
 
 ## Statement on LLM usage
 
-ChatGPT was used during this project to assist with project planning, debugging code, interpreting error messages, discussing visualisation choices, preparing references, and editing written sections of the paper. All code was run and checked by the author, and all numerical results were verified against the underlying data.
+ChatGPT (ChatGPT-5.6 Sol) and Claude (Anthropic, Claude Opus 5.5) were used during this project to assist with project planning, writing and debugging code, interpreting error messages, discussing visualisation choices, preparing references, and editing written sections of the paper and README. All code was run and checked by the author, and all numerical results were verified against the underlying data.
 
-The complete relevant chat histories are available in `other/llm_usage`.
+The complete relevant chat histories are available in `other/llm_usage`: the ChatGPT conversations are in `usage_1.txt` and `usage_2.txt`, and the Claude conversation is in `usage_3_claude.txt`.

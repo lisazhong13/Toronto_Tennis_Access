@@ -460,4 +460,4 @@ To assign records to neighbourhoods, each record's longitude and latitude were c
 
 # Statement on LLM use {#sec-appendix-llm}
 
-ChatGPT was used to help plan the project, debug code, interpret error messages, discuss visualisation choices, draft the reference list, and edit written sections. All code was run and checked by the author, and all numerical results were verified against the data. The complete chat histories are available in the repository at `other/llm_usage`.
+ChatGPT and Claude were used to help plan the project, write and debug code, interpret error messages, discuss visualisation choices, draft the reference list, and edit written sections. All code was run and checked by the author, and all numerical results were verified against the data. The complete chat histories, translated into English from the original bilingual conversations, are available in the repository at `other/llm_usage`.
